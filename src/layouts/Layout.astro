@@ -1,51 +1,51 @@
 ---
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const navigation = [
+  { text: "Home", slug: "/" },
+  { text: "Work", slug: "/work" },
+  { text: "About", slug: "/about" },
+];
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-slate-50">
+    <header class="mx-auto flex w-11/12 items-center justify-between py-4">
+      <h1 class="text-3xl font-bold">Fazza Amiarso</h1>
+      <nav>
+        <ul class="flex items-center gap-2">
+          {
+            navigation.map((nav) => {
+              return (
+                <li>
+                  <a href={nav.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
+                    {nav.text}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+    </header>
     <slot />
+    <footer class="py-12"></footer>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
