@@ -4,7 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const openSourceProjects = [
   {
@@ -23,11 +27,39 @@ const openSourceProjects = [
     url: "https://github.com/Icon-Shelf/icon-shelf",
   },
 ];
+
+// TODO: should be data from 'content collection'
+const projects = [
+  {
+    thumbnail: "https://i.imgur.com/S2cqkro.png",
+    title: "Invoys",
+    description:
+      "About Open source and self-hostable invoice management app built with Next.js. Made to be free of cost.",
+    slug: "#",
+    siteUrl: "#",
+  },
+  {
+    thumbnail: "https://i.imgur.com/S2cqkro.png",
+    title: "Invoys",
+    description:
+      "About Open source and self-hostable invoice management app built with Next.js. Made to be free of cost.",
+    slug: "#",
+    siteUrl: "#",
+  },
+  {
+    thumbnail: "https://i.imgur.com/S2cqkro.png",
+    title: "Invoys",
+    description:
+      "About Open source and self-hostable invoice management app built with Next.js. Made to be free of cost.",
+    slug: "#",
+    siteUrl: "#",
+  },
+];
 ---
 
 <Layout title="Fazza Amiarso" description="A personal website">
-  <main class="mx-auto w-11/12">
-    <section class="space-y-4 py-20">
+  <main class="mx-auto w-11/12 max-w-4xl space-y-20 pt-20">
+    <section class="space-y-4">
       <div class="text-5xl leading-tight">
         <div>Hi, I'm Fazza</div>
         <div>A Jakarta based frontend developer and mentor. I help other developers grow.</div>
@@ -57,12 +89,57 @@ const openSourceProjects = [
         </li>
       </ul>
     </section>
-    <section class="grid w-full grid-cols-2 gap-2">
-      <div class="col-span-2 rounded-md bg-neutral-200 p-20">Invoys</div>
-      <div class="rounded-md bg-neutral-200 p-12">Bento 2</div>
-      <div class="rounded-md bg-neutral-200 p-12">Bento 3</div>
+    <section>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {
+          projects.map((project) => {
+            return (
+              <li>
+                <Card>
+                  <CardHeader>
+                    <div class="flex items-center gap-4 ">
+                      <div class="flex h-20 w-20 items-center justify-center">
+                        <Image
+                          src={project.thumbnail}
+                          alt={project.title}
+                          width={100}
+                          height={100}
+                          class="rounded-md"
+                        />
+                      </div>
+                      <div>
+                        <CardTitle className="mb-1">{project.title}</CardTitle>
+                        <CardDescription>[some description]</CardDescription>
+                      </div>
+                    </div>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardFooter className="flex w-full space-x-4">
+                    <a
+                      class={cn(buttonVariants({ variant: "default" }), "w-full")}
+                      href={project.slug}>
+                      Explore
+                    </a>
+                    <a
+                      class={cn(
+                        buttonVariants({ variant: "ghost" }),
+                        "w-full",
+                        project.siteUrl.startsWith("#") &&
+                          "bg pointer-events-none cursor-default text-neutral-500"
+                      )}
+                      href={project.siteUrl}>
+                      Visit site
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </CardFooter>
+                </Card>
+              </li>
+            );
+          })
+        }
+      </ul>
     </section>
-    <section class="pt-12s space-y-8">
+    <section class="space-y-8">
       <div>
         <h2 class="text-4xl font-bold">OPEN SOURCE</h2>
         <p class="text-2xl">
