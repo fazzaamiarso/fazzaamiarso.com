@@ -1,0 +1,132 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import Layout from "@/layouts/Layout.astro";
+import { cn } from "@/lib/utils";
+
+const workData = {
+  facilitating: [
+    {
+      role: "React.js Intermediate Facilitator",
+      program: "IDCamp 2023",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
+            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
+            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
+      slug: "#",
+    },
+    {
+      role: "Frontend Basic and Beginner Facilitator",
+      program: "DBS Foundation Coding Camp 2024",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
+            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
+            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
+      slug: "#",
+    },
+  ],
+  mentoring: [
+    {
+      role: "Dedicated Mentor",
+      program: "Dicoding Indonesia",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
+            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
+            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
+      slug: undefined,
+    },
+    {
+      role: "React.js Capstone Project Advisor",
+      program: "MSIB Kampus Merdeka X Dicoding Indonesia Cycle 6",
+      description: ``,
+      slug: undefined,
+    },
+    {
+      role: "Frontend Capstone Project Advisor",
+      program: "MSIB Kampus Merdeka X Dicoding Indonesia Cycle 5",
+      description: ``,
+      slug: undefined,
+    },
+    {
+      role: "Frontend Capstone Project Advisor",
+      program: "MSIB Kampus Merdeka X Dicoding Indonesia Cycle 4",
+      description: ``,
+      slug: undefined,
+    },
+  ],
+  teaching: [
+    {
+      role: "React.js Instructor",
+      program: "MSIB Kampus Merdeka X Dicoding Indonesia Cycle 6",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
+            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
+            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
+      slug: "#",
+    },
+  ],
+};
+---
+
+<Layout title="Fazza Amiarso" description="A personal website">
+  <main class="mx-auto w-11/12 max-w-4xl space-y-20 pt-20">
+    <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
+      <h2 class="mb-8 font-semibold">Teaching</h2>
+      <ul class="space-y-12">
+        {
+          workData.teaching.map((item) => {
+            return (
+              <li class="space-y-2">
+                <div class="border-l-2 pl-2">{item.program}</div>
+                <h3 class="font-bold">{item.role}</h3>
+                <p>{item.description}</p>
+                {item.slug && (
+                  <a href={item.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
+                    Read article
+                  </a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+    <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
+      <h2 class="mb-8 font-semibold">Facilitating</h2>
+      <ul class="space-y-12">
+        {
+          workData.facilitating.map((item) => {
+            return (
+              <li class="space-y-2">
+                <div class="border-l-2 pl-2">{item.program}</div>
+                <h3 class="font-bold">{item.role}</h3>
+                <p>{item.description}</p>
+                {item.slug && (
+                  <a href={item.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
+                    Read article
+                  </a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+    <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
+      <h2 class="mb-8 font-semibold">Mentoring</h2>
+      <ul class="space-y-12">
+        {
+          workData.mentoring.map((item) => {
+            return (
+              <li class="space-y-2">
+                <div class="border-l-2 pl-2">{item.program}</div>
+                <h3 class="font-bold">{item.role}</h3>
+                <p>{item.description}</p>
+                {item.slug && (
+                  <a href={item.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
+                    Read article
+                  </a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>

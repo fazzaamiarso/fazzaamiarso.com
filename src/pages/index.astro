@@ -2,13 +2,11 @@
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/layouts/Layout.astro";
-import "@/styles/globals.css";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const openSourceProjects = [
   {
@@ -64,6 +62,23 @@ const projects = [
         <div>Hi, I'm Fazza</div>
         <div>A Jakarta based frontend developer and mentor. I help other developers grow.</div>
       </div>
+      <ul class="flex items-center gap-4">
+        <li>
+          <a
+            class={buttonVariants({ variant: "ghost", size: "icon" })}
+            target="_blank"
+            href="https://www.linkedin.com/in/fazzaamiarso/"
+            ><LinkedInLogoIcon className="h-6 w-6" /></a
+          >
+        </li>
+        <li>
+          <a
+            class={buttonVariants({ variant: "ghost", size: "icon" })}
+            target="_blank"
+            href="https://github.com/fazzaamiarso"><GitHubLogoIcon className="h-6 w-6" /></a
+          >
+        </li>
+      </ul>
       <div>
         I'm currently a Mentor at <a
           href="https://www.dicoding.com/mentoring"
@@ -73,21 +88,6 @@ const projects = [
           Dicoding Indonesia</a
         >
       </div>
-      <ul class="flex items-center gap-4">
-        <li>
-          <a
-            class={buttonVariants({ variant: "ghost", size: "icon" })}
-            href="https://www.linkedin.com/in/fazzaamiarso/"
-            ><LinkedInLogoIcon className="h-6 w-6" /></a
-          >
-        </li>
-        <li>
-          <a
-            class={buttonVariants({ variant: "ghost", size: "icon" })}
-            href="https://github.com/fazzaamiarso"><GitHubLogoIcon className="h-6 w-6" /></a
-          >
-        </li>
-      </ul>
     </section>
     <section>
       <ul class="grid gap-4 sm:grid-cols-2">
