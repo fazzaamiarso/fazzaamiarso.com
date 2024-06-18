@@ -4,10 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import Layout from "@/layouts/Layout.astro";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { ArrowUpRight } from "lucide-react";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
+import ProjectCard from "@/components/project-card.astro";
 
 const openSourceProjects = await getCollection("oss");
 
@@ -41,7 +39,7 @@ const projects = [
 ---
 
 <Layout title="Fazza Amiarso" description="A personal website">
-  <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-20">
+  <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-10">
     <section class="space-y-4 py-20">
       <div class="text-5xl leading-tight">
         <div>Hi, I'm Fazza</div>
@@ -76,53 +74,19 @@ const projects = [
     </section>
     <section>
       <h2 class="mb-8 text-4xl font-bold">Featured Projects</h2>
-      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="grid gap-4 md:grid-cols-2">
         {
           projects.map((project) => {
             return (
               <li>
-                <Card>
-                  <CardHeader>
-                    <div class="flex items-center gap-4">
-                      <div class="flex h-20 w-20 items-center justify-center">
-                        <Image
-                          src={project.thumbnail}
-                          alt={project.title}
-                          width={100}
-                          height={100}
-                          class="rounded-md"
-                        />
-                      </div>
-                      <div>
-                        <CardTitle className="mb-1">{project.title}</CardTitle>
-                        <CardDescription>[some description]</CardDescription>
-                      </div>
-                    </div>
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="flex w-full space-x-4">
-                    <a
-                      class={cn(buttonVariants({ variant: "default" }), "w-full")}
-                      href={project.slug}>
-                      Read case study````
-                    </a>
-                    <a
-                      class={cn(
-                        buttonVariants({ variant: "ghost" }),
-                        "w-full",
-                        project.siteUrl.startsWith("#") &&
-                          "bg pointer-events-none cursor-default text-neutral-500"
-                      )}
-                      href={project.siteUrl}>
-                      Visit site
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  </CardFooter>
-                </Card>
+                <ProjectCard {...project} projectUrl={project.siteUrl} />
               </li>
             );
           })
         }
+        <li class="content-center sm:justify-self-center">
+          <a href="#">See more projects</a>
+        </li>
       </ul>
     </section>
     <section class="space-y-8">

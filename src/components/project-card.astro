@@ -1,0 +1,53 @@
+---
+import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
+import { buttonVariants } from "./ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./ui/card";
+import { Image } from "astro:assets";
+
+interface Props {
+  thumbnail: string;
+  title: string;
+  description: string;
+  slug: string;
+  projectUrl?: string;
+}
+
+const project = Astro.props;
+---
+
+<Card>
+  <CardHeader>
+    <div class="flex items-center gap-4">
+      <div class="flex h-20 w-20 items-center justify-center">
+        <Image
+          src={project.thumbnail}
+          alt={project.title}
+          width={100}
+          height={100}
+          class="rounded-md"
+        />
+      </div>
+      <div>
+        <CardTitle className="mb-1">{project.title}</CardTitle>
+        <CardDescription>[some description]</CardDescription>
+      </div>
+    </div>
+    <CardDescription>{project.description}</CardDescription>
+  </CardHeader>
+  <CardFooter className="flex w-full space-x-4">
+    <a class={cn(buttonVariants({ variant: "default" }), "w-full")} href={project.slug}>
+      Read case study
+    </a>
+    <a
+      class={cn(
+        buttonVariants({ variant: "ghost" }),
+        "w-full",
+        project.projectUrl && "bg pointer-events-none cursor-default text-neutral-500"
+      )}
+      href={project.projectUrl ?? "#"}>
+      Visit site
+      <ArrowUpRight className="h-4 w-4" />
+    </a>
+  </CardFooter>
+</Card>
