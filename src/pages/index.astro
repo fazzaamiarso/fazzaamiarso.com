@@ -6,25 +6,10 @@ import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { ArrowUpRight } from "lucide-react";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
-const openSourceProjects = [
-  {
-    name: "Astro Reactive Library",
-    tech: ["Astro", "Typescript"],
-    url: "https://github.com/astro-reactive/astro-reactive",
-  },
-  {
-    name: "Juno",
-    tech: ["React", "Typescript"],
-    url: "https://github.com/Elysium-Labs-EU/juno-core",
-  },
-  {
-    name: "Icon Shelf",
-    tech: ["React", "Typescript", "Electron"],
-    url: "https://github.com/Icon-Shelf/icon-shelf",
-  },
-];
+const openSourceProjects = await getCollection("oss");
 
 // TODO: should be data from 'content collection'
 const projects = [
@@ -57,7 +42,7 @@ const projects = [
 
 <Layout title="Fazza Amiarso" description="A personal website">
   <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-20">
-    <section class="space-y-4">
+    <section class="space-y-4 py-20">
       <div class="text-5xl leading-tight">
         <div>Hi, I'm Fazza</div>
         <div>A frontend developer and mentor. I help other developers grow.</div>
@@ -90,14 +75,15 @@ const projects = [
       </div>
     </section>
     <section>
-      <ul class="grid gap-4 sm:grid-cols-2">
+      <h2 class="mb-8 text-4xl font-bold">Featured Projects</h2>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {
           projects.map((project) => {
             return (
               <li>
                 <Card>
                   <CardHeader>
-                    <div class="flex items-center gap-4 ">
+                    <div class="flex items-center gap-4">
                       <div class="flex h-20 w-20 items-center justify-center">
                         <Image
                           src={project.thumbnail}
@@ -118,7 +104,7 @@ const projects = [
                     <a
                       class={cn(buttonVariants({ variant: "default" }), "w-full")}
                       href={project.slug}>
-                      Explore
+                      Read case study````
                     </a>
                     <a
                       class={cn(
@@ -148,15 +134,15 @@ const projects = [
       </div>
       <ul class="divide-y-2">
         {
-          openSourceProjects.map((project) => {
+          openSourceProjects.map((project: any) => {
             return (
               <li class="flex justify-between py-4">
-                <a href={project.url} target="_blank" class="group flex items-center text-xl">
-                  {project.name}{" "}
+                <a href={project.data.url} target="_blank" class="group flex items-center text-xl">
+                  {project.data.name}{" "}
                   <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />{" "}
                 </a>
                 <div class="flex items-center gap-2">
-                  {project.tech.map((t) => (
+                  {project.data.tech.map((t: any) => (
                     <Badge className="rounded-md">{t}</Badge>
                   ))}
                 </div>
