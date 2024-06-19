@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import * as config from "@/site-config";
+import WarningBanner from "@/components/warning-banner.astro";
 
 interface Props {
   title?: string;
@@ -49,6 +50,7 @@ const { title = config.siteTitle, description = config.siteDescription } = Astro
     <meta name="twitter:creator" content={config.twitterHandle} />
   </head>
   <body class="bg-slate-100">
+    <WarningBanner />
     <div class="mx-auto max-w-5xl bg-slate-50 ring-1 ring-slate-200 sm:w-11/12">
       <header class="mx-auto flex w-11/12 items-center justify-between py-4">
         <h1 class="text-3xl font-bold">Fazza Amiarso</h1>
