@@ -8,20 +8,13 @@ import {
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 import { Separator } from "@/components/ui/separator";
+import * as config from "@/site-config";
 
 const socialLinks = [
-  { text: "Linkedin", href: "https://www.linkedin.com/in/fazzaamiarso/", icon: LinkedInLogoIcon },
-  { text: "Github", href: "https://github.com/fazzaamiarso", icon: GitHubLogoIcon },
-  { text: "X (Twitter)", href: "https://x.com/faz_razq", icon: TwitterLogoIcon },
-  { text: "fazzamiarso@gmail.com", href: "mailto:fazzamiarso@gmail.com", icon: EnvelopeClosedIcon },
-];
-
-const navigationLinks = [
-  { text: "Home", href: "#" },
-  { text: "Work", href: "#" },
-  { text: "Teaching", href: "#" },
-  { text: "About", href: "#" },
-  { text: "Source code", href: "#" },
+  { text: "Linkedin", href: config.linkedinUrl, icon: LinkedInLogoIcon },
+  { text: "Github", href: config.githubUrl, icon: GitHubLogoIcon },
+  { text: "X (Twitter)", href: config.twitterUrl, icon: TwitterLogoIcon },
+  { text: "fazzamiarso@gmail.com", href: `mailto:${config.email}`, icon: EnvelopeClosedIcon },
 ];
 ---
 
@@ -54,19 +47,6 @@ const navigationLinks = [
   </div>
   <Separator className="my-12 bg-transparent" />
   <div class="space-y-20">
-    <!-- <ul class="flex gap-2">
-      {
-        navigationLinks.map((link) => {
-          return (
-            <li>
-              <a href={link.href} class={cn(buttonVariants({ variant: "link" }))}>
-                {link.text}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul> -->
     <div class="flex justify-between">
       <p class="text-sm">&copy; Fazza Razaq Amiarso 2024</p>
       <p class="text-sm">Based in Jakarta, Indonesia 🇮🇩</p>

@@ -3,10 +3,11 @@ import Footer from "@/components/footer.astro";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import * as config from "@/site-config";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 const navigation = [
@@ -16,7 +17,7 @@ const navigation = [
   { text: "About", slug: "/about" },
 ];
 
-const { title, description } = Astro.props;
+const { title = config.siteTitleBase, description = config.siteDescription } = Astro.props;
 ---
 
 <!doctype html>

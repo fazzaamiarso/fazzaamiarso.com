@@ -6,12 +6,13 @@ import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { ArrowUpRight } from "lucide-react";
 import { getCollection } from "astro:content";
 import ProjectCard from "@/components/project-card.astro";
+import * as config from "@/site-config";
 
 const openSourceProjects = await getCollection("oss");
 const projects = await getCollection("project", ({ data }: any) => data.featured);
 ---
 
-<Layout title="Fazza Amiarso" description="A personal website">
+<Layout>
   <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-10">
     <section class="space-y-4 py-20">
       <div class="text-5xl leading-tight">
@@ -23,15 +24,14 @@ const projects = await getCollection("project", ({ data }: any) => data.featured
           <a
             class={buttonVariants({ variant: "ghost", size: "icon" })}
             target="_blank"
-            href="https://www.linkedin.com/in/fazzaamiarso/"
-            ><LinkedInLogoIcon className="h-6 w-6" /></a
+            href={config.linkedinUrl}><LinkedInLogoIcon className="h-6 w-6" /></a
           >
         </li>
         <li>
           <a
             class={buttonVariants({ variant: "ghost", size: "icon" })}
             target="_blank"
-            href="https://github.com/fazzaamiarso"><GitHubLogoIcon className="h-6 w-6" /></a
+            href={config.githubUrl}><GitHubLogoIcon className="h-6 w-6" /></a
           >
         </li>
       </ul>
