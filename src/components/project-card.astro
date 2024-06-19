@@ -43,7 +43,7 @@ const project = Astro.props;
       class={cn(
         buttonVariants({ variant: "ghost" }),
         "w-full",
-        project.projectUrl && "bg pointer-events-none cursor-default text-neutral-500"
+        !project.projectUrl && "cursor-not-allowed pointer-events-none text-neutral-500"
       )}
       href={project.projectUrl ?? "#"}>
       Visit site

@@ -17,7 +17,7 @@ const project = defineCollection({
     publishedDate: z.date(),
     cover: z.string().url(),
     githubUrl: z.string().url(),
-    siteUrl: z.string().url(),
+    siteUrl: z.string().url().optional(),
     featured: z.boolean().default(false),
   }),
 });

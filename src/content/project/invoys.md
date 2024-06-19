@@ -4,7 +4,7 @@ description: "Open source and self-hostable invoice management app built with Ne
 cover: "https://i.imgur.com/jjJiZSg.jpg"
 publishedDate: 2022-11-06
 githubUrl: "https://github.com/fazzaamiarso/invoys"
-siteUrl: "https://invoys.fzworld.xyz/"
+# siteUrl: "https://invoys.fzworld.xyz/"
 featured: true
 ---
 

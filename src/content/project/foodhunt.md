@@ -2,7 +2,7 @@
 name: "Foodhunt"
 description: "A restaurant catalog application where users can find and search for their favorite restaurants. This project is a final project submission for Dicoding Frontend Expert Class."
 cover: "https://i.imgur.com/jjJiZSg.jpg"
-publishedDate: 2022-11-06
+publishedDate: 2023-03-04
 githubUrl: "https://github.com/fazzaamiarso/dicoding-FE-Expert"
 siteUrl: "https://foodhunt-fz.netlify.app/#skip-content"
 featured: true

@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 import ProjectCard from "@/components/project-card.astro";
 
 const openSourceProjects = await getCollection("oss");
-const projects = await getCollection("project");
+const projects = await getCollection("project", ({ data }: any) => data.featured);
 ---
 
 <Layout title="Fazza Amiarso" description="A personal website">
@@ -49,20 +49,18 @@ const projects = await getCollection("project");
       <h2 class="mb-8 text-4xl font-bold">Featured Projects</h2>
       <ul class="grid gap-4 md:grid-cols-2">
         {
-          projects
-            .filter((project: any) => project.data.featured)
-            .map((project: any) => {
-              return (
-                <li>
-                  <ProjectCard
-                    {...project.data}
-                    slug={`/project/${project.slug}`}
-                    thumbnail={project.data.cover}
-                    projectUrl={project.data.siteUrl}
-                  />
-                </li>
-              );
-            })
+          projects.map((project: any) => {
+            return (
+              <li>
+                <ProjectCard
+                  {...project.data}
+                  slug={`/project/${project.slug}`}
+                  thumbnail={project.data.cover}
+                  projectUrl={project.data.siteUrl}
+                />
+              </li>
+            );
+          })
         }
         <li class="content-center sm:justify-self-center">
           <a href="/project">See more projects</a>
