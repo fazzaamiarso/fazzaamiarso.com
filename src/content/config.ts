@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
 
-const ossCollection = defineCollection({
+const oss = defineCollection({
   type: "data",
   schema: z.object({
     name: z.string(),
@@ -9,6 +9,20 @@ const ossCollection = defineCollection({
   }),
 });
 
+const project = defineCollection({
+  type: "content",
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    publishedDate: z.date(),
+    cover: z.string().url(),
+    githubUrl: z.string().url(),
+    siteUrl: z.string().url(),
+    featured: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
-  oss: ossCollection,
+  oss,
+  project,
 };

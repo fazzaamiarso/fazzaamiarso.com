@@ -8,34 +8,7 @@ import { getCollection } from "astro:content";
 import ProjectCard from "@/components/project-card.astro";
 
 const openSourceProjects = await getCollection("oss");
-
-// TODO: should be data from 'content collection'
-const projects = [
-  {
-    thumbnail: "https://i.imgur.com/S2cqkro.png",
-    title: "Invoys",
-    description:
-      "About Open source and self-hostable invoice management app built with Next.js. Made to be free of cost.",
-    slug: "#",
-    siteUrl: "#",
-  },
-  {
-    thumbnail: "https://i.imgur.com/S2cqkro.png",
-    title: "Invoys",
-    description:
-      "About Open source and self-hostable invoice management app built with Next.js. Made to be free of cost.",
-    slug: "#",
-    siteUrl: "#",
-  },
-  {
-    thumbnail: "https://i.imgur.com/S2cqkro.png",
-    title: "Invoys",
-    description:
-      "About Open source and self-hostable invoice management app built with Next.js. Made to be free of cost.",
-    slug: "#",
-    siteUrl: "#",
-  },
-];
+const projects = await getCollection("project");
 ---
 
 <Layout title="Fazza Amiarso" description="A personal website">
@@ -76,16 +49,23 @@ const projects = [
       <h2 class="mb-8 text-4xl font-bold">Featured Projects</h2>
       <ul class="grid gap-4 md:grid-cols-2">
         {
-          projects.map((project) => {
-            return (
-              <li>
-                <ProjectCard {...project} projectUrl={project.siteUrl} />
-              </li>
-            );
-          })
+          projects
+            .filter((project: any) => project.data.featured)
+            .map((project: any) => {
+              return (
+                <li>
+                  <ProjectCard
+                    {...project.data}
+                    slug={`/project/${project.slug}`}
+                    thumbnail={project.data.cover}
+                    projectUrl={project.data.siteUrl}
+                  />
+                </li>
+              );
+            })
         }
         <li class="content-center sm:justify-self-center">
-          <a href="#">See more projects</a>
+          <a href="/project">See more projects</a>
         </li>
       </ul>
     </section>
