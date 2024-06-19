@@ -17,18 +17,36 @@ const navigation = [
   { text: "About", slug: "/about" },
 ];
 
-const { title = config.siteTitleBase, description = config.siteDescription } = Astro.props;
+const { title = config.siteTitle, description = config.siteDescription } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <!-- Open Graph START -->
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={config.siteDomain} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={config.ogImageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={config.ogImageAlt} />
+    <!-- Open Graph END  -->
+    <!-- Twitter card START -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content={config.siteDomain} />
+    <meta property="twitter:url" content={`https://${config.siteDomain}`} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={config.ogImageUrl} />
+    <meta name="twitter:creator" content={config.twitterHandle} />
   </head>
   <body class="bg-slate-100">
     <div class="mx-auto max-w-5xl bg-slate-50 ring-1 ring-slate-200 sm:w-11/12">

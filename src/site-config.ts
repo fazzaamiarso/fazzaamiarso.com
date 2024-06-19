@@ -2,7 +2,7 @@ export const siteTitleBase = "Fazza Razaq Amiarso";
 export const siteTitle = `${siteTitleBase} | Frontend Developer & Mentor`;
 export const siteDescription =
   "A frontend developer with focus on making accessible software with beautiful interfaces for everyone";
-export const siteUrl = "fazzaamiarso.com";
+export const siteDomain = "fazzaamiarso.com";
 
 export const ogImageUrl =
   "https://res.cloudinary.com/dkiqn0gqg/image/upload/v1693350354/fazzaamiarso-og-final.png";
