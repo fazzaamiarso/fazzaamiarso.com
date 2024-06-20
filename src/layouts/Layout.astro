@@ -1,22 +1,15 @@
 ---
 import Footer from "@/components/footer.astro";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+
 import "@/styles/globals.css";
 import * as config from "@/site-config";
 import WarningBanner from "@/components/warning-banner.astro";
+import Header from "@/components/header.astro";
 
 interface Props {
   title?: string;
   description?: string;
 }
-
-const navigation = [
-  { text: "Home", slug: "/" },
-  { text: "Project", slug: "/project" },
-  { text: "Work", slug: "/work" },
-  { text: "About", slug: "/about" },
-];
 
 const { title = config.siteTitle, description = config.siteDescription } = Astro.props;
 ---
@@ -52,24 +45,7 @@ const { title = config.siteTitle, description = config.siteDescription } = Astro
   <body class="bg-slate-100">
     <WarningBanner />
     <div class="mx-auto max-w-5xl bg-slate-50 ring-1 ring-slate-200 sm:w-11/12">
-      <header class="mx-auto flex w-11/12 items-center justify-between py-4">
-        <h1 class="text-3xl font-bold">Fazza Amiarso</h1>
-        <nav>
-          <ul class="flex items-center gap-2">
-            {
-              navigation.map((nav) => {
-                return (
-                  <li>
-                    <a href={nav.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
-                      {nav.text}
-                    </a>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <slot />
       <Footer />
     </div>
