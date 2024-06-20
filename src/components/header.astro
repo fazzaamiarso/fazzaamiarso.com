@@ -1,0 +1,50 @@
+---
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import MenuButton from "./menu-button";
+
+const navigation = [
+  { text: "Home", slug: "/" },
+  { text: "Project", slug: "/project" },
+  { text: "Work", slug: "/work" },
+  { text: "About", slug: "/about" },
+];
+---
+
+<header class="mx-auto flex w-11/12 items-center justify-between py-4">
+  <h1 class="text-3xl font-bold">Fazza Amiarso</h1>
+  {/* MOBILE START */}
+  <MenuButton client:load>
+    <ul class="w-full space-y-4">
+      {
+        navigation.map((nav) => {
+          return (
+            <li class="text-center">
+              <a href={nav.slug} class={cn(buttonVariants({ variant: "ghost" }), "w-full")}>
+                {nav.text}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </MenuButton>
+  {/* MOBILE END */}
+  {/* DESKTOP START */}
+  <nav class="hidden sm:block">
+    <ul class="flex items-center gap-2">
+      {
+        navigation.map((nav) => {
+          return (
+            <li>
+              <a href={nav.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
+                {nav.text}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+  {/* DESKTOP END */}
+</header>
