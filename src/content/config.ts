@@ -19,6 +19,9 @@ const project = defineCollection({
     githubUrl: z.string().url(),
     siteUrl: z.string().url().optional(),
     featured: z.boolean().default(false),
+    tools: z.array(z.string()),
+    role: z.string(),
+    type: z.enum(["hackathon", "personal", "submission"]),
   }),
 });
 

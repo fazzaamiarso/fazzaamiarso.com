@@ -3,7 +3,7 @@ import ProjectCard from "@/components/project-card.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const projects = (await getCollection("project")).sort((a: any, b: any) => {
+const projects = (await getCollection("project")).sort((a, b) => {
   return new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime();
 });
 ---
@@ -18,7 +18,7 @@ const projects = (await getCollection("project")).sort((a: any, b: any) => {
     </div>
     <ul class="grid gap-4 sm:grid-cols-2">
       {
-        projects.map((project: any) => {
+        projects.map((project) => {
           return (
             <li>
               <ProjectCard

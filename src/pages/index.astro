@@ -9,7 +9,7 @@ import ProjectCard from "@/components/project-card.astro";
 import * as config from "@/site-config";
 
 const openSourceProjects = await getCollection("oss");
-const projects = await getCollection("project", ({ data }: any) => data.featured);
+const projects = await getCollection("project", ({ data }) => data.featured);
 ---
 
 <Layout>
@@ -49,7 +49,7 @@ const projects = await getCollection("project", ({ data }: any) => data.featured
       <h2 class="mb-8 text-4xl font-bold">Featured Projects</h2>
       <ul class="grid gap-4 md:grid-cols-2">
         {
-          projects.map((project: any) => {
+          projects.map((project) => {
             return (
               <li>
                 <ProjectCard
@@ -76,15 +76,15 @@ const projects = await getCollection("project", ({ data }: any) => data.featured
       </div>
       <ul class="divide-y-2">
         {
-          openSourceProjects.map((project: any) => {
+          openSourceProjects.map((project) => {
             return (
               <li class="flex justify-between py-4">
                 <a href={project.data.url} target="_blank" class="group flex items-center text-xl">
                   {project.data.name}{" "}
                   <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />{" "}
                 </a>
-                <div class="flex items-center gap-2">
-                  {project.data.tech.map((t: any) => (
+                <div class="flex flex-wrap items-center justify-end gap-2">
+                  {project.data.tech.map((t) => (
                     <Badge className="rounded-md">{t}</Badge>
                   ))}
                 </div>

@@ -5,6 +5,9 @@ cover: "https://i.imgur.com/jjJiZSg.jpg"
 publishedDate: 2022-03-01
 githubUrl: "https://github.com/fazzaamiarso/munchika"
 siteUrl: "https://munchika.netlify.app/"
+type: "hackathon"
+tools: ["remix", "supabase", "tailwind", "vitest", "cypress"]
+role: "Developed and designed the whole app end to end."
 ---
 
 ## Background, sorta...
@@ -26,14 +29,6 @@ But, music come in many different languages and background, which is a problem b
 Another problem is the song that they are meant to find, possibly (high probability actually) exist in other language make it unreachable to them because they simply overlooked it because they dont understand the language or doesn't even ever reach their search.
 
 On the flip side, I found it problematic for me too is there are a lot of people that would like to share their thought on social media about how a song truly helped them, but when they uploaded it, not that many people care and people sometimes prejudiced by the song coming from another language and culture ( that came from my own experience actually, it truly sucks ). A lot of them believe in power of music, but it doesn't seem like it to me😪. I don't think that it is terrible or something, someone can have different taste, but what if we can just share it in a platform where people truly care to look at it and want to find it because it can be a help to them.
-
-## Techs used
-
-- remix
-- supabase
-- tailwind
-- vitest
-- cypress
 
 I build this app using a stack that I want to learn, so keep in mind that I still learning these tools. Hope this can give you some heads-up.
 

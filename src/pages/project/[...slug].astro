@@ -1,26 +1,59 @@
 ---
+import { buttonVariants } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
+import { cn } from "@/lib/utils";
 import { getCollection } from "astro:content";
+import { ArrowLeft } from "lucide-react";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
-  return blogEntries.map((entry: any) => ({
+  return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
-const { entry } = Astro.props as any;
+const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.name} description={entry.data.description}>
-  <main class="mx-auto w-11/12 max-w-5xl pt-10">
-    <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-      {entry.data.name}
-    </h1>
-    <div>
-      <Content />
+  <main class="relative mx-auto w-11/12 max-w-5xl pt-10">
+    <a
+      href="/"
+      class={cn(
+        buttonVariants({
+          variant: "outline",
+          size: "icon",
+        }),
+        "rounded-full md:absolute mb-8",
+      )}>
+      <ArrowLeft />
+    </a>
+    <div class="mx-auto space-y-8 md:w-2/3">
+      <div>
+        <h1 class="mb-4 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-5xl">
+          {entry.data.name}
+        </h1>
+        <p class="text-2xl">{entry.data.description}</p>
+      </div>
+      <div>
+        <div class="mb-6">
+          <div class="font-semibold">Type</div>
+          <div>{entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}</div>
+        </div>
+        <div class="mb-6">
+          <div class="font-semibold">Role</div>
+          <div>{entry.data.role}</div>
+        </div>
+        <di class="mb-6">
+          <div class="font-semibold">Tools</div>
+          <div>{entry.data.tools.join(", ")}</div>
+        </di>
+      </div>
+      <div class="prose prose-lg prose-zinc">
+        <Content />
+      </div>
     </div>
   </main>
 </Layout>

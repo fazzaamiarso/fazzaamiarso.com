@@ -6,6 +6,18 @@ publishedDate: 2022-08-01
 githubUrl: "https://github.com/fazzaamiarso/requestD"
 siteUrl: "https://request-d.vercel.app/"
 featured: true
+tools: [
+"Next.js",
+"Trpc",
+"Tailwind",
+"Prisma",
+"Planetscale",
+"Zod",
+"NextAuth",
+"react-hook-form"
+]
+type: "hackathon"
+role: "Developed and designed the whole app end to end."
 ---
 
 ## Inspiration
@@ -18,22 +30,6 @@ I also draw inspiration from [ngl.link](https://ngl.link) and Theo Browne's [OnA
 > "Currently, this app is ongoing a quota extension request to onboard more user. Which means **only users that are added by me in Spotify developer dashboard can login as admin** for the time being"
 
 You can try this app song live submission here: [request-d.vercel.app/submission/cl69utgmz02190hlg63krtn70](https://request-d.vercel.app/submission/cl69utgmz02190hlg63krtn70)
-
-## Techs used
-
-This app was bootstrapped with [create-t3-app](https://github.com/t3-oss/create-t3-app).
-
-- next.js
-- trpc
-- tailwind
-- prisma
-- planetscale
-
-Some other notable techs that I use:
-
-- **Zod**. Zod is actually installed as a dependency for trpc, but I realized that Zod can be valuable too as a validator for 3rd party API.
-- **NextAuth**. Used it to handle the authentication and authorization with Spotify.
-- **react-hook-form**. Used it to handle form submission.
 
 ## Problem
 

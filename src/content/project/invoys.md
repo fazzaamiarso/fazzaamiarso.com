@@ -6,6 +6,21 @@ publishedDate: 2022-11-06
 githubUrl: "https://github.com/fazzaamiarso/invoys"
 # siteUrl: "https://invoys.fzworld.xyz/"
 featured: true
+role: "Developed and designed the whole app end to end."
+type: "hackathon"
+tools:
+  [
+    "Next.js",
+    "Typescript",
+    "TRPC",
+    "Prisma",
+    "Planetscale(MySQL)",
+    "TailwindCSS",
+    "Courier",
+    "Docker",
+    "Cypress",
+    "Vitest",
+  ]
 ---
 
 ## Inspiration
@@ -21,19 +36,6 @@ On the internet, a lot of open-source Invoice management apps are built with Lar
 - Export datas to CSV.
 - Invite team members.
 - Magic Link Authentication.
-
-## Techs Used
-
-_Invoys_ is bootsrapped with create-t3-app which based on Next.js.
-
-- next.js
-- trpc
-- tailwind
-- prisma
-- planetscale
-- docker
-- cypress
-- vitest
 
 ## Project Gallery
 
