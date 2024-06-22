@@ -2,52 +2,50 @@
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import { buttonVariants } from "./ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "./ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter, CardContent } from "./ui/card";
 import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { Badge } from "./ui/badge";
 
-interface Props {
-  thumbnail: string;
-  name: string;
-  description: string;
+type ProjectCollection = CollectionEntry<"project">["data"];
+
+interface Props extends ProjectCollection {
   slug: string;
-  projectUrl?: string;
 }
 
 const project = Astro.props;
 ---
 
-<Card className="grid h-full">
-  <CardHeader>
-    <div class="flex items-center gap-4">
-      <div class="flex h-20 w-20 items-center justify-center">
-        <Image
-          src={project.thumbnail}
-          alt={project.name ?? ""}
-          width={100}
-          height={100}
-          class="rounded-md"
-        />
-      </div>
-      <div>
-        <CardTitle className="mb-1">{project.name}</CardTitle>
-        <CardDescription>[some description]</CardDescription>
-      </div>
+<Card className="flex h-full flex-col justify-between gap-4 p-8">
+  <div>
+    <div class="flex items-center gap-2">
+      <CardTitle className="mb-1 text-3xl">{project.name}</CardTitle>
+      <Badge variant="secondary">{project.type}</Badge>
     </div>
-    <CardDescription className="line-clamp-3">{project.description}</CardDescription>
-  </CardHeader>
-  <CardFooter className="flex w-full gap-4">
-    <a class={cn(buttonVariants({ variant: "default" }), "w-full")} href={project.slug}>
-      Read case study
-    </a>
-    <a
-      class={cn(
-        buttonVariants({ variant: "ghost" }),
-        "w-full",
-        !project.projectUrl && "cursor-not-allowed pointer-events-none text-neutral-500"
-      )}
-      href={project.projectUrl ?? "#"}>
-      Visit site
-      <ArrowUpRight className="h-4 w-4" />
-    </a>
-  </CardFooter>
+    <CardDescription className="mb-auto line-clamp-3">{project.description}</CardDescription>
+  </div>
+  <div class="space-y-4">
+    <Image
+      src={project.cover}
+      alt={project.name ?? ""}
+      width={100}
+      height={100}
+      class="w-full rounded-md"
+    />
+    <div class="flex w-full gap-4">
+      <a class={cn(buttonVariants({ variant: "default" }), "w-full")} href={project.slug}>
+        Read case study
+      </a>
+      <a
+        class={cn(
+          buttonVariants({ variant: "ghost" }),
+          "w-full",
+          !project.siteUrl && "cursor-not-allowed pointer-events-none text-neutral-500",
+        )}
+        href={project.siteUrl ?? "#"}>
+        Visit site
+        <ArrowUpRight className="h-4 w-4" />
+      </a>
+    </div>
+  </div>
 </Card>

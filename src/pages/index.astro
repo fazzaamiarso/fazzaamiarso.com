@@ -52,12 +52,7 @@ const projects = await getCollection("project", ({ data }) => data.featured);
           projects.map((project) => {
             return (
               <li>
-                <ProjectCard
-                  {...project.data}
-                  slug={`/project/${project.slug}`}
-                  thumbnail={project.data.cover}
-                  projectUrl={project.data.siteUrl}
-                />
+                <ProjectCard {...project.data} slug={`/project/${project.slug}`} />
               </li>
             );
           })
