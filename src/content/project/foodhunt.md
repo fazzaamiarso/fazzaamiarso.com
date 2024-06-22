@@ -6,19 +6,21 @@ publishedDate: 2023-03-04
 githubUrl: "https://github.com/fazzaamiarso/dicoding-FE-Expert"
 siteUrl: "https://foodhunt-fz.netlify.app/#skip-content"
 featured: true
+role: "Built the whole app end to end. Ensuring submission's criteria are implemented."
+type: "submission"
+tools:
+  [
+    "Typescript",
+    "Lit Element",
+    "SCSS",
+    "Webpack",
+    "Zod",
+    "IndexedDB",
+    "Workbox(PWA)",
+    "Playwright",
+    "Vitest",
+  ]
 ---
-
-## Technologies
-
-- Typescript
-- Lit Element
-- SCSS
-- Webpack 5
-- Zod
-- IndexedDB
-- Progressive Web App (PWA)
-- Workbox
-- Playwright + Vitest
 
 ## Challenges and Learning
 

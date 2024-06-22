@@ -5,6 +5,15 @@ cover: "https://res.cloudinary.com/dkiqn0gqg/image/upload/v1660770336/product-fe
 publishedDate: 2022-05-27
 githubUrl: "https://github.com/fazzaamiarso/product-feedback-next-trpc-prisma"
 # siteUrl: "https://product-feedback-next-trpc-prisma.vercel.app/"
+tools: [
+"Next.js",
+"Planetscale",
+"Tailwind",
+"Prisma",
+"Trpc",
+]
+type: "personal"
+role: "Develop the UI and functionality of the app based on the Figma design"
 ---
 
 ## Overview
