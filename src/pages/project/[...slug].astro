@@ -31,6 +31,7 @@ const { Content } = await entry.render();
       )}>
       <ArrowLeft />
     </a>
+
     <div class="mx-auto space-y-8 md:w-2/3">
       <div>
         <h1 class="mb-4 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-5xl">
@@ -71,5 +72,11 @@ const { Content } = await entry.render();
 <style is:global>
   .prose a {
     @apply break-words;
+  }
+  .prose img {
+    @apply m-0 rounded-md;
+  }
+  .prose .image-wrapper {
+    @apply my-8 rounded-md p-2 ring-1 ring-zinc-300;
   }
 </style>

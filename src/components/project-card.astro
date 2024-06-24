@@ -37,12 +37,14 @@ const project = Astro.props;
         Read case study
       </a>
       <a
+        target="_blank"
+        referrerpolicy="no-referrer"
+        href={project.siteUrl ?? "#"}
         class={cn(
           buttonVariants({ variant: "ghost" }),
           "w-full",
           !project.siteUrl && "cursor-not-allowed pointer-events-none text-neutral-500",
-        )}
-        href={project.siteUrl ?? "#"}>
+        )}>
         Visit site
         <ArrowUpRight className="h-4 w-4" />
       </a>
