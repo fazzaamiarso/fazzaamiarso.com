@@ -24,7 +24,8 @@ const { title = config.siteTitle, description = config.siteDescription } = Astro
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Open Graph START -->
     <meta property="og:title" content={title} />
-    <meta property="og:url" content={config.siteDomain} />
+    <meta property="og:site_name" content={config.siteTitleBase} />
+    <meta property="og:url" content={`https://${config.siteDomain}`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={config.ogImageUrl} />
     <meta property="og:type" content="website" />
