@@ -1,29 +1,52 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+
+const languages = [
+  { name: "Indonesian" },
+  { name: "English" },
+  { name: "Japanese" },
+  { name: "Korean" },
+  { name: "Chinese" },
+];
 ---
 
 <Layout>
-  <main class="mx-auto w-11/12 max-w-5xl pt-10">
+  <main class="mx-auto w-11/12 max-w-5xl space-y-8 pt-20">
     <div>
-      <h2 class="pb-2 text-3xl font-semibold tracking-tight first:mt-0">I'm Fazza</h2>
-      <p>A Fullstack-able Frontend developer from Indonesia.</p>
+      <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Hi there 👋, I'm Fazza.
+      </h1>
+      <h2 class="scroll-m-20 text-2xl font-semibold tracking-tight text-zinc-500">
+        A Fullstack-able Frontend developer from Indonesia
+      </h2>
     </div>
     <div>
-      <h3>Why?</h3>
-      <p>
+      <p class="leading-7 [&:not(:first-child)]:mt-6">
         I love building stuff on the web because I can freely express my Idea. It’s like having your
         own tiny space that show you exist in this world. Sharing knowledge and opinion, build
         useful application, craft stunning visual experience, make new friends and connections.
       </p>
+      <p class="leading-7 [&:not(:first-child)]:mt-6">
+        I help other developer grows through various means, such as mentoring, facilitating, and
+        teaching. I made most of my network and connections from participating as facilitator in
+        scholarship programs.
+      </p>
     </div>
     <div>
-      <h2>Languages I speak</h2>
-      <p>
+      <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
+      <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
         Since I was a child, I’m fascinated by the power that languages hold to connect with people
-        simply by speaking a person’s native language. I also believe, understanding the culture can
-        open the door to people’s heart. It motivated me to learn and understand different language
-        and culture.
+        simply by speaking a person’s native language. I also believe that understanding the culture
+        can open the door to people’s heart. It motivated me to learn and understand different
+        language and culture.
       </p>
+      <ul class="flex gap-2">
+        {
+          languages.map((lang) => {
+            return <li class="rounded-md bg-zinc-300 p-2 text-sm font-semibold">{lang.name}</li>;
+          })
+        }
+      </ul>
     </div>
   </main>
 </Layout>

@@ -65,8 +65,14 @@ const workData = {
 
 <Layout>
   <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-20">
+    <section>
+      <h2 class="pb-2 text-3xl font-semibold tracking-tight first:mt-0">Works</h2>
+      <p class="text-lg leading-7">
+        What I've been working on to that contributed to the real world
+      </p>
+    </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
-      <h2 class="mb-8 font-semibold">Teaching</h2>
+      <h3 class="mb-8 font-semibold">Teaching</h3>
       <ul class="space-y-12">
         {
           workData.teaching.map((item) => {
@@ -87,7 +93,7 @@ const workData = {
       </ul>
     </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
-      <h2 class="mb-8 font-semibold">Facilitating</h2>
+      <h3 class="mb-8 font-semibold">Facilitating</h3>
       <ul class="space-y-12">
         {
           workData.facilitating.map((item) => {
@@ -108,7 +114,7 @@ const workData = {
       </ul>
     </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
-      <h2 class="mb-8 font-semibold">Mentoring</h2>
+      <h3 class="mb-8 font-semibold">Mentoring</h3>
       <ul class="space-y-12">
         {
           workData.mentoring.map((item) => {
