@@ -2,6 +2,8 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import MenuButton from "./menu-button";
+import Logo from "@/assets/fz-logo.svg";
+import { Image } from "astro:assets";
 
 const navigation = [
   { text: "Home", slug: "/" },
@@ -12,7 +14,10 @@ const navigation = [
 ---
 
 <header class="mx-auto flex w-11/12 items-center justify-between py-4">
-  <h1 class="text-3xl font-bold">Fazza Amiarso</h1>
+  <h1 class="sr-only">Fazza Amiarso</h1>
+  <a href="/">
+    <Image src={Logo} alt="" width="50" />
+  </a>
   {/* MOBILE START */}
   <MenuButton client:load>
     <ul class="w-full space-y-4">
