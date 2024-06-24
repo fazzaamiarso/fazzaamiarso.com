@@ -24,7 +24,8 @@ const { title = config.siteTitle, description = config.siteDescription } = Astro
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Open Graph START -->
     <meta property="og:title" content={title} />
-    <meta property="og:url" content={config.siteDomain} />
+    <meta property="og:site_name" content={config.siteTitleBase} />
+    <meta property="og:url" content={`https://${config.siteDomain}`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={config.ogImageUrl} />
     <meta property="og:type" content="website" />
@@ -41,6 +42,14 @@ const { title = config.siteTitle, description = config.siteDescription } = Astro
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={config.ogImageUrl} />
     <meta name="twitter:creator" content={config.twitterHandle} />
+    <!-- Twitter card END -->
+    <!-- Favicon START -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <!-- Favicon END  -->
   </head>
   <body class="bg-slate-100">
     <WarningBanner />

@@ -16,17 +16,12 @@ const projects = (await getCollection("project")).sort((a, b) => {
         What I've been working on to create a space in the vast space of the web
       </p>
     </div>
-    <ul class="grid gap-4 sm:grid-cols-2">
+    <ul class="grid gap-4 md:grid-cols-2">
       {
         projects.map((project) => {
           return (
             <li>
-              <ProjectCard
-                {...project.data}
-                slug={`/project/${project.slug}`}
-                thumbnail={project.data.cover}
-                projectUrl={project.data.siteUrl}
-              />
+              <ProjectCard {...project.data} slug={`/project/${project.slug}`} />
             </li>
           );
         })
