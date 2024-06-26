@@ -1,5 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import myImage from "@/assets/fra.jpeg";
 
 const languages = [
   { name: "Indonesian" },
@@ -11,42 +13,53 @@ const languages = [
 ---
 
 <Layout>
-  <main class="mx-auto w-11/12 max-w-5xl space-y-8 pt-20">
-    <div>
-      <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        Hi there 👋, I'm Fazza.
-      </h1>
-      <h2 class="scroll-m-20 text-2xl font-semibold tracking-tight text-zinc-500">
-        A Fullstack-able Frontend developer from Indonesia
-      </h2>
+  <main class="mx-auto w-11/12 max-w-5xl items-start gap-4 pt-20">
+    <div
+      class="max-w-max rounded-md p-2 shadow-sm ring-1 ring-zinc-300 max-sm:mb-8 sm:float-right sm:ml-8">
+      <Image
+        src={myImage}
+        alt="fazza razaq amiarso"
+        class="max-w-72 rotate-3 rounded-md max-sm:w-44"
+      />
     </div>
-    <div>
-      <p class="leading-7 [&:not(:first-child)]:mt-6">
-        I love building stuff on the web because I can freely express my Idea. It’s like having your
-        own tiny space that show you exist in this world. Sharing knowledge and opinion, build
-        useful application, craft stunning visual experience, make new friends and connections.
-      </p>
-      <p class="leading-7 [&:not(:first-child)]:mt-6">
-        I help other developer grows through various means, such as mentoring, facilitating, and
-        teaching. I made most of my network and connections from participating as facilitator in
-        scholarship programs.
-      </p>
-    </div>
-    <div>
-      <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
-      <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
-        Since I was a child, I’m fascinated by the power that languages hold to connect with people
-        simply by speaking a person’s native language. I also believe that understanding the culture
-        can open the door to people’s heart. It motivated me to learn and understand different
-        language and culture.
-      </p>
-      <ul class="flex gap-2">
-        {
-          languages.map((lang) => {
-            return <li class="rounded-md bg-zinc-300 p-2 text-sm font-semibold">{lang.name}</li>;
-          })
-        }
-      </ul>
+    <div class="space-y-8">
+      <div>
+        <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          Hi there 👋, I'm Fazza.
+        </h1>
+        <h2 class="scroll-m-20 text-2xl font-semibold tracking-tight text-zinc-500">
+          A Fullstack-able Frontend developer from Indonesia
+        </h2>
+      </div>
+      <div>
+        <p class="leading-7 [&:not(:first-child)]:mt-6">
+          I love building stuff on the web because I can freely express my Idea. It’s like having
+          your own tiny space that show you exist in this world. Sharing knowledge and opinion,
+          build useful application, craft stunning visual experience, make new friends and
+          connections.
+        </p>
+        <p class="leading-7 [&:not(:first-child)]:mt-6">
+          I help other developer grows through various means, such as mentoring, facilitating, and
+          teaching. I made most of my network and connections from participating as facilitator in
+          scholarship programs.
+        </p>
+      </div>
+      <div>
+        <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
+        <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
+          Since I was a child, I’m fascinated by the power that languages hold to connect with
+          people simply by speaking a person’s native language. I also believe that understanding
+          the culture can open the door to people’s heart. It motivated me to learn and understand
+          different language and culture.
+        </p>
+        <ul class="flex flex-wrap gap-2">
+          {
+            languages.map((lang) => {
+              return <li class="rounded-md bg-zinc-300 p-2 text-sm font-semibold">{lang.name}</li>;
+            })
+          }
+        </ul>
+      </div>
     </div>
   </main>
 </Layout>
