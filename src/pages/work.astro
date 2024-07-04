@@ -8,27 +8,21 @@ const workData = {
     {
       role: "React.js Intermediate Facilitator",
       program: "IDCamp 2023",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
-            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
-            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
-      slug: "#",
+      description: ``,
+      slug: undefined,
     },
     {
       role: "Frontend Basic and Beginner Facilitator",
       program: "DBS Foundation Coding Camp 2024",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
-            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
-            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
-      slug: "#",
+      description: ``,
+      slug: undefined,
     },
   ],
   mentoring: [
     {
       role: "Dedicated Mentor",
       program: "Dicoding Indonesia",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
-            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
-            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
+      description: ``,
       slug: undefined,
     },
     {
@@ -54,10 +48,8 @@ const workData = {
     {
       role: "React.js Instructor",
       program: "MSIB Kampus Merdeka X Dicoding Indonesia Cycle 6",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus eveniet, quam
-            reprehenderit, facilis excepturi voluptate tempore ipsa ab quidem officiis aspernatur
-            voluptatum, ad quo minus. Error dignissimos voluptatibus minus.`,
-      slug: "#",
+      description: ``,
+      slug: undefined,
     },
   ],
 };
@@ -65,14 +57,18 @@ const workData = {
 
 <Layout>
   <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-20">
+    <section>
+      <h2 class="pb-2 text-3xl font-semibold tracking-tight first:mt-0">Works</h2>
+      <p class="leading-7">What I've been working on to that contributed to the real world</p>
+    </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
-      <h2 class="mb-8 font-semibold">Teaching</h2>
+      <h3 class="mb-8 font-bold">Teaching</h3>
       <ul class="space-y-12">
         {
           workData.teaching.map((item) => {
             return (
               <li class="space-y-2">
-                <div class="border-l-2 pl-2">{item.program}</div>
+                <div class="border-l-2 pl-2 text-sm">{item.program}</div>
                 <h3 class="font-bold">{item.role}</h3>
                 <p>{item.description}</p>
                 {item.slug && (
@@ -87,13 +83,13 @@ const workData = {
       </ul>
     </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
-      <h2 class="mb-8 font-semibold">Facilitating</h2>
+      <h3 class="mb-8 font-bold">Facilitating</h3>
       <ul class="space-y-12">
         {
           workData.facilitating.map((item) => {
             return (
               <li class="space-y-2">
-                <div class="border-l-2 pl-2">{item.program}</div>
+                <div class="border-l-2 pl-2 text-sm">{item.program}</div>
                 <h3 class="font-bold">{item.role}</h3>
                 <p>{item.description}</p>
                 {item.slug && (
@@ -108,13 +104,13 @@ const workData = {
       </ul>
     </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
-      <h2 class="mb-8 font-semibold">Mentoring</h2>
+      <h3 class="mb-8 font-bold">Mentoring</h3>
       <ul class="space-y-12">
         {
           workData.mentoring.map((item) => {
             return (
               <li class="space-y-2">
-                <div class="border-l-2 pl-2">{item.program}</div>
+                <div class="border-l-2 pl-2 text-sm">{item.program}</div>
                 <h3 class="font-bold">{item.role}</h3>
                 <p>{item.description}</p>
                 {item.slug && (

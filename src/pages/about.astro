@@ -1,29 +1,71 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import myImage from "@/assets/fra.jpeg";
+import { indonesia, china, japan, southKorea, usa } from "@/assets/countries";
+
+const languages = [
+  { name: "Indonesian", flag: indonesia },
+  { name: "English", flag: usa },
+  { name: "Japanese", flag: japan },
+  { name: "Korean", flag: southKorea },
+  { name: "Chinese", flag: china },
+];
 ---
 
 <Layout>
-  <main class="mx-auto w-11/12 max-w-5xl pt-10">
-    <div>
-      <h2 class="pb-2 text-3xl font-semibold tracking-tight first:mt-0">I'm Fazza</h2>
-      <p>A Fullstack-able Frontend developer from Indonesia.</p>
+  <main class="mx-auto w-11/12 max-w-5xl items-start gap-4 pt-20">
+    <div
+      class="max-w-max rounded-md p-2 shadow-sm ring-1 ring-zinc-300 max-sm:mb-8 sm:float-right sm:ml-8 group">
+      <Image
+        src={myImage}
+        alt="fazza razaq amiarso"
+        class="max-w-72 rotate-3 rounded-md max-sm:w-44 group-hover:rotate-0 transition-transform"
+      />
     </div>
-    <div>
-      <h3>Why?</h3>
-      <p>
-        I love building stuff on the web because I can freely express my Idea. It’s like having your
-        own tiny space that show you exist in this world. Sharing knowledge and opinion, build
-        useful application, craft stunning visual experience, make new friends and connections.
-      </p>
-    </div>
-    <div>
-      <h2>Languages I speak</h2>
-      <p>
-        Since I was a child, I’m fascinated by the power that languages hold to connect with people
-        simply by speaking a person’s native language. I also believe, understanding the culture can
-        open the door to people’s heart. It motivated me to learn and understand different language
-        and culture.
-      </p>
+    <div class="space-y-8">
+      <div>
+        <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          Hi there 👋, I'm Fazza.
+        </h1>
+        <h2 class="scroll-m-20 text-2xl font-semibold tracking-tight text-zinc-500">
+          A Fullstack-able Frontend developer from Indonesia
+        </h2>
+      </div>
+      <div>
+        <p class="leading-7 [&:not(:first-child)]:mt-6">
+          I love building stuff on the web because I can freely express my Idea. It’s like having
+          your own tiny space that show you exist in this world. Sharing knowledge and opinion,
+          build useful application, craft stunning visual experience, make new friends and
+          connections.
+        </p>
+        <p class="leading-7 [&:not(:first-child)]:mt-6">
+          I help other developer grows through various means, such as mentoring, facilitating, and
+          teaching. I made most of my network and connections from participating as facilitator in
+          scholarship programs.
+        </p>
+      </div>
+      <div>
+        <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
+        <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
+          Since I was a child, I’m fascinated by the power that languages hold to connect with
+          people simply by speaking a person’s native language. I also believe that understanding
+          the culture can open the door to people’s heart. It motivated me to learn and understand
+          different language and culture.
+        </p>
+        <ul class="flex flex-wrap gap-4">
+          {
+            languages.map((lang) => {
+              return (
+                <li class="flex items-center rounded-full bg-zinc-100 text-sm font-semibold">
+                  <Image src={lang.flag} alt={lang.name}}  class="w-8"/>
+                  <span class="px-2">{lang.name}</span>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div> 
     </div>
   </main>
 </Layout>

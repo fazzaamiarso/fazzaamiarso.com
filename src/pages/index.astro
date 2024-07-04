@@ -46,7 +46,11 @@ const projects = await getCollection("project", ({ data }) => data.featured);
       </div>
     </section>
     <section>
-      <h2 class="mb-8 text-4xl font-bold">Featured Projects</h2>
+      <h2
+        class="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+        Featured Projects
+      </h2>
+      <p class="mb-8 leading-7 [&:not(:first-child)]:mt-6">Projects that I've proud of building</p>
       <ul class="grid gap-4 md:grid-cols-2">
         {
           projects.map((project) => {
@@ -64,8 +68,8 @@ const projects = await getCollection("project", ({ data }) => data.featured);
     </section>
     <section class="space-y-8">
       <div>
-        <h2 class="text-4xl font-bold">OPEN SOURCE</h2>
-        <p class="text-2xl">
+        <h2 class="text-4xl font-bold">Open Source</h2>
+        <p class="leading-7 [&:not(:first-child)]:mt-6">
           Some of my contributions in the wild as a means of learning and meeting new people
         </p>
       </div>
