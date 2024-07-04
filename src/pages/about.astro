@@ -2,24 +2,25 @@
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import myImage from "@/assets/fra.jpeg";
+import { indonesia, china, japan, southKorea, usa } from "@/assets/countries";
 
 const languages = [
-  { name: "Indonesian" },
-  { name: "English" },
-  { name: "Japanese" },
-  { name: "Korean" },
-  { name: "Chinese" },
+  { name: "Indonesian", flag: indonesia },
+  { name: "English", flag: usa },
+  { name: "Japanese", flag: japan },
+  { name: "Korean", flag: southKorea },
+  { name: "Chinese", flag: china },
 ];
 ---
 
 <Layout>
   <main class="mx-auto w-11/12 max-w-5xl items-start gap-4 pt-20">
     <div
-      class="max-w-max rounded-md p-2 shadow-sm ring-1 ring-zinc-300 max-sm:mb-8 sm:float-right sm:ml-8">
+      class="max-w-max rounded-md p-2 shadow-sm ring-1 ring-zinc-300 max-sm:mb-8 sm:float-right sm:ml-8 group">
       <Image
         src={myImage}
         alt="fazza razaq amiarso"
-        class="max-w-72 rotate-3 rounded-md max-sm:w-44"
+        class="max-w-72 rotate-3 rounded-md max-sm:w-44 group-hover:rotate-0 transition-transform"
       />
     </div>
     <div class="space-y-8">
@@ -52,14 +53,19 @@ const languages = [
           the culture can open the door to people’s heart. It motivated me to learn and understand
           different language and culture.
         </p>
-        <ul class="flex flex-wrap gap-2">
+        <ul class="flex flex-wrap gap-4">
           {
             languages.map((lang) => {
-              return <li class="rounded-md bg-zinc-300 p-2 text-sm font-semibold">{lang.name}</li>;
+              return (
+                <li class="flex items-center rounded-full bg-zinc-100 text-sm font-semibold">
+                  <Image src={lang.flag} alt={lang.name}}  class="w-8"/>
+                  <span class="px-2">{lang.name}</span>
+                </li>
+              );
             })
           }
         </ul>
-      </div>
+      </div> 
     </div>
   </main>
 </Layout>
