@@ -1,5 +1,6 @@
 ---
 import { buttonVariants } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import Layout from "@/layouts/Layout.astro";
 import { cn } from "@/lib/utils";
 
@@ -60,6 +61,7 @@ const workData = {
     <section>
       <h2 class="pb-2 text-3xl font-semibold tracking-tight first:mt-0">Works</h2>
       <p class="leading-7">What I've been working on to that contributed to the real world</p>
+      <Separator className="mt-2" />
     </section>
     <section class="items-start gap-20 pl-4 md:flex md:border-l-[1px]">
       <h3 class="mb-8 font-bold">Teaching</h3>
