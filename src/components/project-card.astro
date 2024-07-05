@@ -14,9 +14,27 @@ interface Props extends ProjectCollection {
 }
 
 const project = Astro.props;
+
+const year = project.publishedDate.getFullYear();
 ---
 
-<Card className="flex h-full flex-col justify-between gap-4 p-8">
+<Card
+  className="relative flex h-full flex-col gap-4 bg-transparent p-8 transition-colors hover:bg-zinc-100">
+  <div class="size-16 rounded-full bg-zinc-800"></div>
+  <div class="text-sm">
+    <span class="font-semibold">{year}</span> / <span class="text-zinc-700"
+      >{project.type.charAt(0).toUpperCase() + project.type.slice(1)}</span
+    >
+  </div>
+  <h3 class="text-2xl font-semibold">
+    <a href={project.slug} class="before:absolute before:inset-0 before:z-10">
+      {project.name}
+    </a>
+  </h3>
+  <p class="line-clamp-3 text-zinc-700">{project.description}</p>
+</Card>
+
+<!-- <Card className="flex h-full flex-col justify-between gap-4 bg-transparent p-8">
   <div>
     <div class="flex items-center gap-2">
       <CardTitle className="mb-1 text-3xl">{project.name}</CardTitle>
@@ -50,4 +68,4 @@ const project = Astro.props;
       </a>
     </div>
   </div>
-</Card>
+</Card> -->
