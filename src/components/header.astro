@@ -6,11 +6,12 @@ import Logo from "@/assets/fz-logo.svg";
 import { Image } from "astro:assets";
 
 const navigation = [
-  { text: "Home", slug: "/" },
-  { text: "Project", slug: "/project" },
-  // { text: "Work", slug: "/work" },
-  { text: "About", slug: "/about" },
+  { text: "Home", slug: "/", matcher: "/home" },
+  { text: "Project", slug: "/project", matcher: "/project" },
+  { text: "About", slug: "/about", matcher: "/about" },
 ];
+
+const currentRoute = Astro.url.pathname.split("/")[1];
 ---
 
 <header class="sticky top-0 z-50 rounded-md bg-white transition-transform">
@@ -41,9 +42,12 @@ const navigation = [
       <ul class="flex items-center gap-2">
         {
           navigation.map((nav) => {
+            const isActive = currentRoute === nav.slug.slice(1);
             return (
               <li>
-                <a href={nav.slug} class={cn(buttonVariants({ variant: "ghost" }))}>
+                <a
+                  href={nav.slug}
+                  class={cn(buttonVariants({ variant: isActive ? "secondary" : "ghost" }))}>
                   {nav.text}
                 </a>
               </li>
