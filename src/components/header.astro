@@ -47,7 +47,10 @@ const currentRoute = Astro.url.pathname.split("/")[1];
               <li>
                 <a
                   href={nav.slug}
-                  class={cn(buttonVariants({ variant: isActive ? "secondary" : "ghost" }))}>
+                  class={cn(
+                    buttonVariants({ variant: isActive ? "secondary" : "ghost" }),
+                    "text-slate-600",
+                  )}>
                   {nav.text}
                 </a>
               </li>
