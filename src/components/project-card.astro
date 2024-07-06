@@ -1,11 +1,6 @@
 ---
-import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
-import { buttonVariants } from "./ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter, CardContent } from "./ui/card";
-import { Image } from "astro:assets";
+import { Card } from "./ui/card";
 import type { CollectionEntry } from "astro:content";
-import { Badge } from "./ui/badge";
 
 type ProjectCollection = CollectionEntry<"project">["data"];
 
@@ -19,7 +14,7 @@ const year = project.publishedDate.getFullYear();
 ---
 
 <Card
-  className="relative flex h-full flex-col gap-4 bg-transparent p-8 transition-colors hover:bg-zinc-100">
+  className="relative flex h-full flex-col gap-4 bg-slate-100 p-8 transition-colors hover:bg-zinc-100">
   <div class="size-16 rounded-full bg-zinc-800"></div>
   <div class="text-sm">
     <span class="font-semibold">{year}</span> / <span class="text-zinc-700"
@@ -33,39 +28,3 @@ const year = project.publishedDate.getFullYear();
   </h3>
   <p class="line-clamp-3 text-zinc-700">{project.description}</p>
 </Card>
-
-<!-- <Card className="flex h-full flex-col justify-between gap-4 bg-transparent p-8">
-  <div>
-    <div class="flex items-center gap-2">
-      <CardTitle className="mb-1 text-3xl">{project.name}</CardTitle>
-      <Badge variant="secondary">{project.type}</Badge>
-    </div>
-    <CardDescription className="mb-auto line-clamp-3">{project.description}</CardDescription>
-  </div>
-  <div class="space-y-4">
-    <Image
-      src={project.cover}
-      alt={project.name ?? ""}
-      width={100}
-      height={100}
-      class="w-full rounded-md"
-    />
-    <div class="flex w-full gap-4">
-      <a class={cn(buttonVariants({ variant: "default" }), "w-full")} href={project.slug}>
-        Read case study
-      </a>
-      <a
-        target="_blank"
-        referrerpolicy="no-referrer"
-        href={project.siteUrl ?? "#"}
-        class={cn(
-          buttonVariants({ variant: "ghost" }),
-          "w-full",
-          !project.siteUrl && "cursor-not-allowed pointer-events-none text-neutral-500",
-        )}>
-        Visit site
-        <ArrowUpRight className="h-4 w-4" />
-      </a>
-    </div>
-  </div>
-</Card> -->
