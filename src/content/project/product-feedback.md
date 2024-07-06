@@ -14,6 +14,9 @@ tools: [
 ]
 type: "personal"
 role: "Develop the UI and functionality of the app based on the Figma design"
+relatedProjects:
+  - munchika
+  - requestd
 ---
 
 ## Overview

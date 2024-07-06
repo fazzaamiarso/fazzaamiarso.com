@@ -3,6 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getCollection, getEntries } from "astro:content";
 import { ArrowRight } from "lucide-react";
+import DotPattern from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
@@ -24,8 +26,14 @@ const relatedProjects = entry.data.relatedProjects
 <Layout title={entry.data.name} description={entry.data.description}>
   <main class="relative mx-auto w-11/12 max-w-5xl py-20">
     <div class="mx-auto space-y-8">
-      <div class="mb-24 text-center">
-        <h1 class="mb-4 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-5xl">
+      <div class="relative pb-20 pt-6 text-center">
+        <DotPattern
+          client:only
+          className={cn(
+            "-z-10 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
+          )}
+        />
+        <h1 class="mb-4 scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-5xl">
           {entry.data.name}
         </h1>
         <p class="text-xl text-zinc-600">{entry.data.description}</p>

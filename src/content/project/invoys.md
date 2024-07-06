@@ -21,6 +21,9 @@ tools:
     "Cypress",
     "Vitest",
   ]
+relatedProjects:
+  - foodhunt
+  - munchika
 ---
 
 ## Inspiration

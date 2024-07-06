@@ -18,6 +18,9 @@ tools: [
 ]
 type: "hackathon"
 role: "Developed and designed the whole app end to end."
+relatedProjects:
+  - foodhunt
+  - invoys
 ---
 
 ## Inspiration
