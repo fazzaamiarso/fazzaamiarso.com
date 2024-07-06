@@ -1,10 +1,8 @@
 ---
-import { buttonVariants } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
-import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import { ArrowLeft } from "lucide-react";
+import { getCollection, getEntries } from "astro:content";
+import { ArrowRight } from "lucide-react";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
@@ -16,28 +14,35 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const year = entry.data.publishedDate.getFullYear();
+
+const relatedProjects = entry.data.relatedProjects
+  ? await getEntries(entry.data.relatedProjects)
+  : [];
 ---
 
 <Layout title={entry.data.name} description={entry.data.description}>
-  <main class="relative mx-auto w-11/12 max-w-5xl pt-10">
-    <a
-      href="/"
-      class={cn(
-        buttonVariants({
-          variant: "outline",
-          size: "icon",
-        }),
-        "rounded-full md:absolute mb-8",
-      )}>
-      <ArrowLeft />
-    </a>
-
-    <div class="mx-auto space-y-8 md:w-2/3">
-      <div>
+  <main class="relative mx-auto w-11/12 max-w-5xl py-20">
+    <div class="mx-auto space-y-8">
+      <div class="mb-24 text-center">
         <h1 class="mb-4 scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-5xl">
           {entry.data.name}
         </h1>
-        <p class="text-2xl">{entry.data.description}</p>
+        <p class="text-xl text-zinc-600">{entry.data.description}</p>
+      </div>
+      <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+        <div class="rounded-md bg-stone-100 p-4">
+          <div class="text-sm font-semibold">Type</div>
+          <div>{entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}</div>
+        </div>
+        <div class="rounded-md bg-stone-100 p-4">
+          <div class="text-sm font-semibold">Role</div>
+          <div>Frontend</div>
+        </div>
+        <div class="rounded-md bg-stone-100 p-4">
+          <div class="text-sm font-semibold">Year</div>
+          <div>{year}</div>
+        </div>
       </div>
       <div>
         <Image
@@ -48,35 +53,60 @@ const { Content } = await entry.render();
           class="w-full rounded-md"
         />
       </div>
-      <div>
-        <div class="mb-6">
-          <div class="font-semibold">Type</div>
-          <div>{entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}</div>
+      <div class="mx-auto w-10/12">
+        <div class="mb-20">
+          <h2 class="mb-4 text-2xl font-bold">Tools used</h2>
+          <ul class="flex flex-wrap gap-4">
+            {
+              entry.data.tools.map((tool) => {
+                return (
+                  <li class="max-w-max rounded-full bg-slate-50 p-4 text-sm text-slate-700">
+                    {tool}
+                  </li>
+                );
+              })
+            }
+          </ul>
         </div>
-        <div class="mb-6">
-          <div class="font-semibold">Role</div>
-          <div>{entry.data.role}</div>
+        <div class="prose prose-lg prose-zinc mb-32">
+          <Content />
         </div>
-        <di class="mb-6">
-          <div class="font-semibold">Tools</div>
-          <div>{entry.data.tools.join(", ")}</div>
-        </di>
-      </div>
-      <div class="prose prose-lg prose-zinc">
-        <Content />
+
+        {
+          relatedProjects.length ? (
+            <div class="">
+              <h2 class="mb-8 text-2xl">More Projects</h2>
+              <ul class="grid gap-12 md:grid-cols-2">
+                {relatedProjects.map((project) => {
+                  return (
+                    <li class="relative space-y-2 border-l-[1px] pl-4">
+                      <h3 class="font-semibold">{project.data.name}</h3>
+                      <p class="pb-4 text-zinc-500">{project.data.description}</p>
+                      <a
+                        href={project.slug}
+                        class="flex items-center before:absolute before:inset-0 before:z-10">
+                        Read more <ArrowRight className="ml-2 size-4" />{" "}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ) : null
+        }
       </div>
     </div>
   </main>
-</Layout>
 
-<style is:global>
-  .prose a {
-    @apply break-words;
-  }
-  .prose img {
-    @apply m-0 rounded-md;
-  }
-  .prose .image-wrapper {
-    @apply my-8 rounded-md p-2 ring-1 ring-zinc-300;
-  }
-</style>
+  <style is:global>
+    .prose a {
+      @apply break-words;
+    }
+    .prose img {
+      @apply m-0 rounded-md;
+    }
+    .prose .image-wrapper {
+      @apply my-8 rounded-md p-2 ring-1 ring-zinc-300;
+    }
+  </style>
+</Layout>
