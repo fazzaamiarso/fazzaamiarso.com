@@ -25,7 +25,7 @@ const projects = await getCollection("project", ({ data }) => data.featured);
         )}
       />
 
-      <h1 class="relative z-20 text-7xl font-semibold leading-tight">
+      <h1 class="relative z-20 leading-tight lg:text-[76px]">
         I
         <span
           class="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
@@ -58,11 +58,10 @@ const projects = await getCollection("project", ({ data }) => data.featured);
       </div>
     </section>
     <section class="flex flex-col">
-      <h2
-        class="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+      <h2 class="mt-10 scroll-m-20 pb-2 font-semibold tracking-tight transition-colors first:mt-0">
         Featured Projects
       </h2>
-      <p class="mb-8 text-xl leading-7 text-zinc-600">Projects that I've proud of building</p>
+      <p class="mb-8 text-h6 leading-7 text-zinc-600">Projects that I've proud of building</p>
       <ul class="grid gap-4 lg:grid-cols-3">
         {
           projects.map((project) => {

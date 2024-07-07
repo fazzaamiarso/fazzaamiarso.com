@@ -2,9 +2,9 @@
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getCollection, getEntries } from "astro:content";
-import { ArrowRight } from "lucide-react";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
+import RelatedCard from "@/components/project/related-card.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
@@ -33,23 +33,25 @@ const relatedProjects = entry.data.relatedProjects
             "-z-10 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
           )}
         />
-        <h1 class="mb-4 scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-5xl">
+        <h1 class="mb-2 scroll-m-20 font-extrabold tracking-tight">
           {entry.data.name}
         </h1>
-        <p class="text-xl text-zinc-600">{entry.data.description}</p>
+        <p class="text-h5 text-zinc-600">{entry.data.description}</p>
       </div>
       <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-        <div class="rounded-md bg-stone-100 p-4">
-          <div class="text-sm font-semibold">Type</div>
-          <div>{entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}</div>
+        <div class="rounded-md bg-slate-100 p-4">
+          <div class="font-syne text-paragraph font-bold text-slate-600">Type</div>
+          <div class="text-h6 text-slate-900">
+            {entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}
+          </div>
         </div>
-        <div class="rounded-md bg-stone-100 p-4">
-          <div class="text-sm font-semibold">Role</div>
-          <div>Frontend</div>
+        <div class="rounded-md bg-slate-100 p-4">
+          <div class="font-syne text-paragraph font-bold text-slate-600">Role</div>
+          <div class="text-h6 text-slate-900">Frontend</div>
         </div>
-        <div class="rounded-md bg-stone-100 p-4">
-          <div class="text-sm font-semibold">Year</div>
-          <div>{year}</div>
+        <div class="rounded-md bg-slate-100 p-4">
+          <div class="font-syne text-paragraph font-bold text-slate-600">Year</div>
+          <div class="text-h6 text-slate-900">{year}</div>
         </div>
       </div>
       <div>
@@ -79,27 +81,20 @@ const relatedProjects = entry.data.relatedProjects
         <div class="prose prose-lg prose-zinc mb-32">
           <Content />
         </div>
-
         {
           relatedProjects.length ? (
-            <div class="">
-              <h2 class="mb-8 text-2xl">More Projects</h2>
+            <section class="">
+              <h2 class="mb-8">More Projects</h2>
               <ul class="grid gap-12 md:grid-cols-2">
                 {relatedProjects.map((project) => {
                   return (
-                    <li class="relative space-y-2 border-l-[1px] pl-4">
-                      <h3 class="font-semibold">{project.data.name}</h3>
-                      <p class="pb-4 text-zinc-500">{project.data.description}</p>
-                      <a
-                        href={project.slug}
-                        class="flex items-center before:absolute before:inset-0 before:z-10">
-                        Read more <ArrowRight className="ml-2 size-4" />{" "}
-                      </a>
+                    <li>
+                      <RelatedCard {...project.data} slug={project.slug} />
                     </li>
                   );
                 })}
               </ul>
-            </div>
+            </section>
           ) : null
         }
       </div>
@@ -108,8 +103,25 @@ const relatedProjects = entry.data.relatedProjects
 
   <style is:global>
     .prose a {
-      @apply break-words;
+      text-decoration: none;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 2px;
+      transition: background-size 0.3s;
     }
+
+    .prose a:is(:hover, :focus) {
+      background-size: 100% 2px;
+    }
+
+    .prose a {
+      @apply break-words text-orange-600;
+    }
+    /* .prose a {
+      @apply relative z-20 break-words no-underline before:absolute before:bottom-0 before:left-0 before:-z-10 before:h-full before:w-full before:origin-bottom before:scale-y-[10%] before:bg-orange-300/70 before:transition-transform hover:before:scale-100;
+    } */
+
     .prose img {
       @apply m-0 rounded-md;
     }

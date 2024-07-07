@@ -23,6 +23,7 @@ const project = defineCollection({
     role: z.string(),
     type: z.enum(["hackathon", "personal", "submission"]),
     relatedProjects: z.array(reference("project")).optional(),
+    thumbnail: z.string().url(),
   }),
 });
 

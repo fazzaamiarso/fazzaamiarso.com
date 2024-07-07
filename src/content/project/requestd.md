@@ -21,6 +21,7 @@ role: "Developed and designed the whole app end to end."
 relatedProjects:
   - foodhunt
   - invoys
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/v1720383060/fazzaamiarso.com-astro/projects/requestd/requestd-logo_fdwcxy.png
 ---
 
 ## Inspiration

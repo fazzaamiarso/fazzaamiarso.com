@@ -16,21 +16,23 @@ const languages = [
 <Layout>
   <main class="mx-auto w-11/12 max-w-5xl items-start gap-4 pt-20">
     <div
-      class="max-w-max rounded-md p-2 shadow-sm ring-1 ring-zinc-300 max-sm:mb-8 sm:float-right sm:ml-8 group">
+      class="group max-w-max rounded-md p-2 shadow-sm ring-1 ring-zinc-300 max-sm:mx-auto max-sm:mb-8 sm:float-right sm:ml-8">
       <Image
         src={myImage}
         alt="fazza razaq amiarso"
-        class="max-w-72 rotate-3 rounded-md max-sm:w-44 group-hover:rotate-0 transition-transform"
+        class="max-w-72 rotate-3 rounded-md transition-transform group-hover:rotate-0 max-sm:w-44"
       />
     </div>
     <div class="space-y-8">
       <div>
-        <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-          Hi there 👋, I'm Fazza.
+        <h1 class="scroll-m-20 leading-tight">
+          <div>Hi there 👋,</div>
+          <div>I'm Fazza.</div>
         </h1>
-        <h2 class="scroll-m-20 text-2xl font-semibold tracking-tight text-zinc-500">
+        <div
+          class="scroll-m-20 font-syne text-h5 leading-snug tracking-tight text-slate-500 sm:text-h4">
           A Fullstack-able Frontend developer from Indonesia
-        </h2>
+        </div>
       </div>
       <div>
         <p class="leading-7 [&:not(:first-child)]:mt-6">
@@ -47,7 +49,7 @@ const languages = [
       </div>
       <div>
         <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
-        <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
+        <p class="mb-6 leading-7 [&:not(:first-child)]:mt-6">
           Since I was a child, I’m fascinated by the power that languages hold to connect with
           people simply by speaking a person’s native language. I also believe that understanding
           the culture can open the door to people’s heart. It motivated me to learn and understand
@@ -57,15 +59,15 @@ const languages = [
           {
             languages.map((lang) => {
               return (
-                <li class="flex items-center rounded-full bg-slate-200 text-slate-700 text-sm font-semibold">
-                  <Image src={lang.flag} alt={lang.name}}  class="w-8"/>
+                <li class="flex items-center rounded-full text-small text-slate-700 ring-1 ring-slate-200">
+                  <Image src={lang.flag} alt={lang.name} class="w-8" />
                   <span class="px-2">{lang.name}</span>
                 </li>
               );
             })
           }
         </ul>
-      </div> 
+      </div>
     </div>
   </main>
 </Layout>
