@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
   h1,
   h2,
   h3,
@@ -12,6 +19,24 @@
     @apply font-syne font-semibold;
   }
 
+  h1 {
+    @apply text-h3 font-bold sm:text-h1;
+  }
+
+  h2 {
+    @apply text-h4 font-semibold sm:text-h2;
+  }
+
+  h3 {
+    @apply text-h5 font-semibold sm:text-h3;
+  }
+
+  p {
+    @apply text-slate-500 sm:text-paragraph;
+  }
+}
+
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -72,14 +97,5 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

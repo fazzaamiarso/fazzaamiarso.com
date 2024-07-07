@@ -1,63 +1,17 @@
 ---
 import Footer from "@/components/footer.astro";
-import "@/styles/globals.css";
-import * as config from "@/site-config";
 import WarningBanner from "@/components/warning-banner.astro";
 import Header from "@/components/header.astro";
+import BaseLayout from "./BaseLayout.astro";
 
-import "@fontsource-variable/syne";
-import "@fontsource-variable/inter";
-interface Props {
-  title?: string;
-  description?: string;
-}
-
-const { title = config.siteTitle, description = config.siteDescription } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>{title}</title>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- Open Graph START -->
-    <meta property="og:title" content={title} />
-    <meta property="og:site_name" content={config.siteTitleBase} />
-    <meta property="og:url" content={`https://${config.siteDomain}`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={config.ogImageUrl} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={config.ogImageAlt} />
-    <!-- Open Graph END  -->
-    <!-- Twitter card START -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content={config.siteDomain} />
-    <meta property="twitter:url" content={`https://${config.siteDomain}`} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={config.ogImageUrl} />
-    <meta name="twitter:creator" content={config.twitterHandle} />
-    <!-- Twitter card END -->
-    <!-- Favicon START -->
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <!-- Favicon END  -->
-  </head>
-  <body class="">
-    <WarningBanner />
-    <div class="mx-auto max-w-5xl sm:w-11/12">
-      <Header />
-      <slot />
-      <Footer />
-    </div>
-  </body>
-</html>
+<BaseLayout title={title} description={description}>
+  <WarningBanner />
+  <div class="mx-auto max-w-5xl sm:w-11/12">
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</BaseLayout>
