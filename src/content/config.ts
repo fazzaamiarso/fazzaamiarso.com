@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 const oss = defineCollection({
   type: "data",
@@ -22,6 +22,7 @@ const project = defineCollection({
     tools: z.array(z.string()),
     role: z.string(),
     type: z.enum(["hackathon", "personal", "submission"]),
+    relatedProjects: z.array(reference("project")).optional(),
   }),
 });
 

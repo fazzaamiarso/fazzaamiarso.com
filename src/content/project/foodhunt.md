@@ -20,6 +20,9 @@ tools:
     "Playwright",
     "Vitest",
   ]
+relatedProjects:
+  - invoys
+  - requestd
 ---
 
 ## Challenges and Learning

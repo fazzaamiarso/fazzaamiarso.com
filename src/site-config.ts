@@ -9,7 +9,7 @@ export const ogImageUrl =
 export const ogImageAlt = "Fazza Razaq Amiarso portfolio banner";
 
 export const twitterHandle = "@faz_razq";
-export const email = "fazzamiarso@gmail.com";
+export const email = "fazzaamiarso@gmail.com";
 
 export const linkedinUrl = "https://www.linkedin.com/in/fazzaamiarso/";
 export const githubUrl = "https://github.com/fazzaamiarso";

@@ -8,6 +8,9 @@ siteUrl: "https://munchika.netlify.app/"
 type: "hackathon"
 tools: ["remix", "supabase", "tailwind", "vitest", "cypress"]
 role: "Developed and designed the whole app end to end."
+relatedProjects:
+  - foodhunt
+  - product-feedback
 ---
 
 ## Background, sorta...
