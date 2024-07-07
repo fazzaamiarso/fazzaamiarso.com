@@ -23,6 +23,12 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.7.1
         version: 7.7.1(astro@4.11.0(typescript@5.4.5))(react@18.3.1)
+      '@fontsource-variable/inter':
+        specifier: ^5.0.19
+        version: 5.0.19
+      '@fontsource-variable/syne':
+        specifier: ^5.0.20
+        version: 5.0.20
       '@radix-ui/react-aspect-ratio':
         specifier: ^1.0.3
         version: 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -488,6 +494,12 @@ packages:
 
   '@floating-ui/utils@0.2.2':
     resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
+
+  '@fontsource-variable/inter@5.0.19':
+    resolution: {integrity: sha512-V5KPpF5o0sI1uNWAdFArC87NDOb/ZJDPXLomEiKmDCYMlDUCTn2flkuAZkyME2rtGOKO7vzCuDJAND0m/5PhDA==}
+
+  '@fontsource-variable/syne@5.0.20':
+    resolution: {integrity: sha512-zgOO2wPd0mOnJI+/DxO8OM6j4tNy8IaKQS35sdN/4eMrV17RV61lqkWGvRlX87PYATNw43a7bRWfTyGUt0VlZA==}
 
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
@@ -3748,6 +3760,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@floating-ui/utils@0.2.2': {}
+
+  '@fontsource-variable/inter@5.0.19': {}
+
+  '@fontsource-variable/syne@5.0.20': {}
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:

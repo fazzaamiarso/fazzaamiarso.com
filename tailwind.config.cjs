@@ -9,6 +9,10 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      syne: ["Syne Variable", "sans-serif"],
+      inter: ["Inter Variable", "sans-serif"],
+    },
     container: {
       center: true,
       padding: "2rem",

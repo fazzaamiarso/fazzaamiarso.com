@@ -108,8 +108,25 @@ const relatedProjects = entry.data.relatedProjects
 
   <style is:global>
     .prose a {
-      @apply break-words;
+      text-decoration: none;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 2px;
+      transition: background-size 0.3s;
     }
+
+    .prose a:is(:hover, :focus) {
+      background-size: 100% 2px;
+    }
+
+    .prose a {
+      @apply break-words text-orange-600;
+    }
+    /* .prose a {
+      @apply relative z-20 break-words no-underline before:absolute before:bottom-0 before:left-0 before:-z-10 before:h-full before:w-full before:origin-bottom before:scale-y-[10%] before:bg-orange-300/70 before:transition-transform hover:before:scale-100;
+    } */
+
     .prose img {
       @apply m-0 rounded-md;
     }

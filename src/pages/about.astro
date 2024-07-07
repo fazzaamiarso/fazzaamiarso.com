@@ -47,7 +47,7 @@ const languages = [
       </div>
       <div>
         <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
-        <p class="mb-4 leading-7 [&:not(:first-child)]:mt-6">
+        <p class="mb-6 leading-7 [&:not(:first-child)]:mt-6">
           Since I was a child, I’m fascinated by the power that languages hold to connect with
           people simply by speaking a person’s native language. I also believe that understanding
           the culture can open the door to people’s heart. It motivated me to learn and understand
@@ -57,7 +57,7 @@ const languages = [
           {
             languages.map((lang) => {
               return (
-                <li class="flex items-center rounded-full bg-slate-200 text-slate-700 text-sm font-semibold">
+                <li class="flex items-center rounded-full ring-1 ring-slate-300 text-slate-700 text-sm font-semibold">
                   <Image src={lang.flag} alt={lang.name}}  class="w-8"/>
                   <span class="px-2">{lang.name}</span>
                 </li>
