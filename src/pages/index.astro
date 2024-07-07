@@ -16,7 +16,7 @@ const projects = await getCollection("project", ({ data }) => data.featured);
   <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-10">
     <section class="relative space-y-8 py-20">
       <AnimatedGridPattern
-        client:only
+        client:load
         className={cn(
           "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
           // "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",

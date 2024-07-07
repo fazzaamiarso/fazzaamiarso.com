@@ -26,6 +26,9 @@ relatedProjects:
   - munchika
 ---
 
+import { Image } from "astro:assets";
+import SplitImage, { SplitContent, SplitItem } from "@/components/project/split-image";
+
 ## Inspiration
 
 On the internet, a lot of open-source Invoice management apps are built with Laravel. As a Javascript developer, I want to build the "React Solution" for devs that are familiar with React and Javascript.
@@ -42,16 +45,19 @@ On the internet, a lot of open-source Invoice management apps are built with Lar
 
 ## Project Gallery
 
-|                                                    |                                                   |
-| :------------------------------------------------: | :-----------------------------------------------: |
-|   ![Dashboard](https://i.imgur.com/fdeh97j.png)    |  ![New invoice](https://i.imgur.com/1EulVHE.png)  |
-| ![clients table](https://i.imgur.com/T42iGGj.png)  | ![client detail](https://i.imgur.com/RjOkcBE.png) |
-| ![invoice detail](https://i.imgur.com/V2DpeLV.png) | ![invoice batch](https://i.imgur.com/rpDor0M.gif) |
-|     ![login](https://i.imgur.com/lHY7BmH.png)      |
+<SplitImage>
+  <SplitContent>
+    <SplitItem client:visible src="https://i.imgur.com/fdeh97j.png" />
+    <SplitItem client:visible src="https://i.imgur.com/1EulVHE.png" />
+  </SplitContent>
+  <SplitContent>
+    <SplitItem client:visible src="https://i.imgur.com/T42iGGj.png" />
+  </SplitContent>
+</SplitImage>
 
 ## Demo
 
-<YoutubeEmbed id='Val51f1x4mY' title='invoys demo' />
+{/* <YoutubeEmbed id='Val51f1x4mY' title='invoys demo' /> */}
 
 ## Challenges
 
