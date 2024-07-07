@@ -11,6 +11,7 @@ role: "Developed and designed the whole app end to end."
 relatedProjects:
   - foodhunt
   - product-feedback
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/c_thumb,w_200,g_face/v1720383403/fazzaamiarso.com-astro/projects/munchika/munchika-logo_fkk7qa.svg
 ---
 
 ## Background, sorta...

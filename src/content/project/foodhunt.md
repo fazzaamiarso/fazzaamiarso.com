@@ -23,6 +23,7 @@ tools:
 relatedProjects:
   - invoys
   - requestd
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/v1720382623/fazzaamiarso.com-astro/projects/foodhunt/fh-logo_ahhp7l.webp
 ---
 
 ## Challenges and Learning

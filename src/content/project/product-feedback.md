@@ -17,6 +17,7 @@ role: "Develop the UI and functionality of the app based on the Figma design"
 relatedProjects:
   - munchika
   - requestd
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/v1720381585/fazzaamiarso.com-astro/projects/product-feedback/product-feedback-logo_ocuixt.png
 ---
 
 ## Overview
