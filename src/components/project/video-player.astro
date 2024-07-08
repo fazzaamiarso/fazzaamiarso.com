@@ -1,0 +1,27 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+}
+
+const { src, poster } = Astro.props;
+---
+
+<video
+  controls
+  muted
+  playsinline
+  poster={poster}
+  class="no-prose aspect-video rounded-lg ring-1 ring-neutral-200">
+  <source src={src} />
+</video>
+
+<style>
+  video {
+    width: 100%;
+  }
+
+  video[poster] {
+    width: 100%;
+  }
+</style>

@@ -6,7 +6,7 @@ publishedDate: 2022-11-06
 githubUrl: "https://github.com/fazzaamiarso/invoys"
 # siteUrl: "https://invoys.fzworld.xyz/"
 featured: true
-role: "Developed and designed the whole app end to end."
+role: "Frontend"
 type: "hackathon"
 tools:
   [
@@ -24,15 +24,18 @@ tools:
 relatedProjects:
   - foodhunt
   - munchika
-thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/v1720383613/fazzaamiarso.com-astro/projects/invoys/invoys-logo_rdsrbn.webp
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/q_auto/v1720383613/fazzaamiarso.com-astro/projects/invoys/invoys-logo_rdsrbn.webp
 ---
 
 import { Image } from "astro:assets";
 import SplitImage, { SplitContent, SplitItem } from "@/components/project/split-image";
+import VideoPlayer from "@/components/project/video-player.astro";
 
 ## Inspiration
 
 On the internet, a lot of open-source Invoice management apps are built with Laravel. As a Javascript developer, I want to build the "React Solution" for devs that are familiar with React and Javascript.
+
+<VideoPlayer src="https://res.cloudinary.com/dkiqn0gqg/video/upload/f_auto/q_auto/v1720450939/fazzaamiarso.com-astro/projects/invoys/Invoys___Courier_Hacks_Open_Source_720p60_dfmke0.mp4" />
 
 ## Features
 
@@ -50,15 +53,20 @@ On the internet, a lot of open-source Invoice management apps are built with Lar
   <SplitContent>
     <SplitItem client:visible src="https://i.imgur.com/fdeh97j.png" />
     <SplitItem client:visible src="https://i.imgur.com/1EulVHE.png" />
+    <SplitItem
+      client:visible
+      src="https://camo.githubusercontent.com/e3bf1451b0e3b335ef7280f5bc84f79ddb0d6fdc31d1670e1dddac9b183ace2e/68747470733a2f2f692e696d6775722e636f6d2f665675734b72372e706e67"
+    />
   </SplitContent>
   <SplitContent>
     <SplitItem client:visible src="https://i.imgur.com/T42iGGj.png" />
+    <SplitItem client:visible src="https://i.imgur.com/ujWxXj5.png" />
+    <SplitItem
+      client:visible
+      src="https://camo.githubusercontent.com/be08edf3288726c64b6fb9218f440c462e0b3469466330d9878990881f0632c0/68747470733a2f2f692e696d6775722e636f6d2f7270446f72304d2e676966"
+    />
   </SplitContent>
 </SplitImage>
-
-## Demo
-
-{/* <YoutubeEmbed id='Val51f1x4mY' title='invoys demo' /> */}
 
 ## Challenges
 

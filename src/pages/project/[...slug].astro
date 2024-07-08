@@ -5,6 +5,8 @@ import { getCollection, getEntries } from "astro:content";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
 import RelatedCard from "@/components/project/related-card.astro";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { buttonVariants } from "@/components/ui/button";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
@@ -23,10 +25,10 @@ const relatedProjects = entry.data.relatedProjects
   : [];
 ---
 
-<Layout title={entry.data.name} description={entry.data.description}>
-  <main class="relative mx-auto w-11/12 max-w-5xl py-20">
-    <div class="mx-auto space-y-8">
-      <div class="relative pb-20 pt-6 text-center">
+<Layout layout={false} title={entry.data.name} description={entry.data.description}>
+  <main class="relative mx-auto py-20">
+    <div class="">
+      <div class="relative mx-auto w-11/12 max-w-5xl pb-20 pt-6 text-center">
         <DotPattern
           client:load
           className={cn(
@@ -38,34 +40,81 @@ const relatedProjects = entry.data.relatedProjects
         </h1>
         <p class="text-h5 text-zinc-600">{entry.data.description}</p>
       </div>
-      <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-        <div class="rounded-md bg-slate-100 p-4">
-          <div class="font-syne text-paragraph font-bold text-slate-600">Type</div>
-          <div class="text-h6 text-slate-900">
-            {entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}
+      <div class="border-t-neutral-200 md:border-t">
+        <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-3">
+          <div class="border-t-neutral-200 p-4 max-md:border-t md:border-l">
+            <div class="font-syne text-paragraph font-bold text-slate-600">Type</div>
+            <div class="text-h6 text-slate-900">
+              {entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}
+            </div>
+          </div>
+          <div class="border-t-neutral-200 p-4 max-md:border-t md:border-l">
+            <div class="font-syne text-paragraph font-bold text-slate-600">Role</div>
+            <div class="text-h6 text-slate-900">{entry.data.role}</div>
+          </div>
+          <div class="border-t-neutral-200 p-4 max-md:border-t md:border-l">
+            <div class="font-syne text-paragraph font-bold text-slate-600">Year</div>
+            <div class="text-h6 text-slate-900">{year}</div>
           </div>
         </div>
-        <div class="rounded-md bg-slate-100 p-4">
-          <div class="font-syne text-paragraph font-bold text-slate-600">Role</div>
-          <div class="text-h6 text-slate-900">Frontend</div>
-        </div>
-        <div class="rounded-md bg-slate-100 p-4">
-          <div class="font-syne text-paragraph font-bold text-slate-600">Year</div>
-          <div class="text-h6 text-slate-900">{year}</div>
+      </div>
+      <div class="group border-y bg-neutral-100 ring-neutral-200">
+        <div class="mx-auto w-11/12 max-w-7xl">
+          <Image
+            src={entry.data.cover}
+            alt={entry.data.name ?? ""}
+            width={100}
+            height={100}
+            class="w-full transition-all group-hover:grayscale-0 lg:grayscale-[50%]"
+          />
         </div>
       </div>
-      <div>
-        <Image
-          src={entry.data.cover}
-          alt={entry.data.name ?? ""}
-          width={100}
-          height={100}
-          class="w-full rounded-md"
-        />
-      </div>
-      <div class="mx-auto w-10/12">
+
+      <div class="mx-auto mt-20 w-11/12 max-w-4xl space-y-12">
+        {
+          entry.data.scope ? (
+            <div class="mx-auto">
+              <h2 class="mb-4 text-h5">Scope</h2>
+              <p>{entry.data.scope}</p>
+            </div>
+          ) : null
+        }
+        {
+          entry.data.githubUrl || entry.data.siteUrl ? (
+            <div>
+              <h2 class="mb-4 text-h5">Links</h2>
+              <ul>
+                {entry.data.githubUrl && (
+                  <li class="flex items-center">
+                    <a
+                      href={entry.data.githubUrl}
+                      class:list={[
+                        buttonVariants({ variant: "link" }),
+                        "pl-0 !text-paragraph text-slate-600",
+                      ]}>
+                      Source Code <ArrowTopRightIcon className="size-5" />
+                    </a>
+                  </li>
+                )}
+
+                {entry.data.siteUrl && (
+                  <li class="flex items-center">
+                    <a
+                      href={entry.data.siteUrl}
+                      class:list={[
+                        buttonVariants({ variant: "link" }),
+                        "pl-0 !text-paragraph text-slate-600",
+                      ]}>
+                      Website <ArrowTopRightIcon className="size-5" />
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          ) : null
+        }
         <div class="mb-20">
-          <h2 class="mb-4 text-2xl font-bold">Tools used</h2>
+          <h2 class="mb-4 text-h5">Tools used</h2>
           <ul class="flex flex-wrap gap-4">
             {
               entry.data.tools.map((tool) => {
@@ -78,13 +127,13 @@ const relatedProjects = entry.data.relatedProjects
             }
           </ul>
         </div>
-        <div class="prose prose-lg prose-zinc mb-32">
+        <div class="prose prose-lg prose-zinc mx-auto max-w-4xl pb-32">
           <Content />
         </div>
         {
           relatedProjects.length ? (
             <section class="">
-              <h2 class="mb-8">More Projects</h2>
+              <h2 class="mb-8">See More Projects</h2>
               <ul class="grid gap-12 md:grid-cols-2">
                 {relatedProjects.map((project) => {
                   return (
@@ -118,9 +167,6 @@ const relatedProjects = entry.data.relatedProjects
     .prose a {
       @apply break-words text-orange-600;
     }
-    /* .prose a {
-      @apply relative z-20 break-words no-underline before:absolute before:bottom-0 before:left-0 before:-z-10 before:h-full before:w-full before:origin-bottom before:scale-y-[10%] before:bg-orange-300/70 before:transition-transform hover:before:scale-100;
-    } */
 
     .prose img {
       @apply m-0 rounded-md;

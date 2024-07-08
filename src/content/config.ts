@@ -16,14 +16,15 @@ const project = defineCollection({
     description: z.string(),
     publishedDate: z.date(),
     cover: z.string().url(),
-    githubUrl: z.string().url(),
+    githubUrl: z.string().url().optional(),
     siteUrl: z.string().url().optional(),
     featured: z.boolean().default(false),
     tools: z.array(z.string()),
     role: z.string(),
-    type: z.enum(["hackathon", "personal", "submission"]),
-    relatedProjects: z.array(reference("project")).optional(),
+    type: z.enum(["hackathon", "personal", "submission", "freelance"]),
+    scope: z.string().optional(),
     thumbnail: z.string().url(),
+    relatedProjects: z.array(reference("project")).optional(),
   }),
 });
 
