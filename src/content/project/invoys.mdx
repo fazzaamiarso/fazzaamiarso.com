@@ -29,10 +29,13 @@ thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/v1720383613/
 
 import { Image } from "astro:assets";
 import SplitImage, { SplitContent, SplitItem } from "@/components/project/split-image";
+import VideoPlayer from "@/components/project/video-player.astro";
 
 ## Inspiration
 
 On the internet, a lot of open-source Invoice management apps are built with Laravel. As a Javascript developer, I want to build the "React Solution" for devs that are familiar with React and Javascript.
+
+<VideoPlayer src="https://res.cloudinary.com/dkiqn0gqg/video/upload/f_auto/q_auto/v1720450939/fazzaamiarso.com-astro/projects/invoys/Invoys___Courier_Hacks_Open_Source_720p60_dfmke0.mp4" />
 
 ## Features
 
@@ -55,8 +58,6 @@ On the internet, a lot of open-source Invoice management apps are built with Lar
     <SplitItem client:visible src="https://i.imgur.com/T42iGGj.png" />
   </SplitContent>
 </SplitImage>
-
-## Demo
 
 {/* <YoutubeEmbed id='Val51f1x4mY' title='invoys demo' /> */}
 

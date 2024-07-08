@@ -23,10 +23,11 @@ const relatedProjects = entry.data.relatedProjects
   : [];
 ---
 
-<Layout title={entry.data.name} description={entry.data.description}>
-  <main class="relative mx-auto w-11/12 max-w-5xl py-20">
-    <div class="mx-auto space-y-8">
-      <div class="relative pb-20 pt-6 text-center">
+<Layout layout={false} title={entry.data.name} description={entry.data.description}>
+  <!-- <main class="relative mx-auto w-11/12 max-w-5xl py-20"> -->
+  <main class="relative mx-auto py-20">
+    <div class="">
+      <div class="relative mx-auto w-11/12 max-w-5xl pb-20 pt-6 text-center">
         <DotPattern
           client:load
           className={cn(
@@ -38,32 +39,36 @@ const relatedProjects = entry.data.relatedProjects
         </h1>
         <p class="text-h5 text-zinc-600">{entry.data.description}</p>
       </div>
-      <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-        <div class="rounded-md bg-slate-100 p-4">
-          <div class="font-syne text-paragraph font-bold text-slate-600">Type</div>
-          <div class="text-h6 text-slate-900">
-            {entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}
+      <div class="border-t-neutral-200 sm:border-t">
+        <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-3">
+          <div class="border-t-neutral-200 p-4 max-sm:border-t sm:border-l">
+            <div class="font-syne text-paragraph font-bold text-slate-600">Type</div>
+            <div class="text-h6 text-slate-900">
+              {entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}
+            </div>
+          </div>
+          <div class="border-t-neutral-200 p-4 max-sm:border-t sm:border-l">
+            <div class="font-syne text-paragraph font-bold text-slate-600">Role</div>
+            <div class="text-h6 text-slate-900">Frontend</div>
+          </div>
+          <div class="border-t-neutral-200 p-4 max-sm:border-t sm:border-l">
+            <div class="font-syne text-paragraph font-bold text-slate-600">Year</div>
+            <div class="text-h6 text-slate-900">{year}</div>
           </div>
         </div>
-        <div class="rounded-md bg-slate-100 p-4">
-          <div class="font-syne text-paragraph font-bold text-slate-600">Role</div>
-          <div class="text-h6 text-slate-900">Frontend</div>
-        </div>
-        <div class="rounded-md bg-slate-100 p-4">
-          <div class="font-syne text-paragraph font-bold text-slate-600">Year</div>
-          <div class="text-h6 text-slate-900">{year}</div>
+      </div>
+      <div class="group border-y bg-neutral-100 ring-neutral-200">
+        <div class="mx-auto w-11/12 max-w-7xl">
+          <Image
+            src={entry.data.cover}
+            alt={entry.data.name ?? ""}
+            width={100}
+            height={100}
+            class="w-full transition-all group-hover:grayscale-0 lg:grayscale-[50%]"
+          />
         </div>
       </div>
-      <div>
-        <Image
-          src={entry.data.cover}
-          alt={entry.data.name ?? ""}
-          width={100}
-          height={100}
-          class="w-full rounded-md"
-        />
-      </div>
-      <div class="mx-auto w-10/12">
+      <div class="mx-auto mt-20 w-11/12 max-w-4xl">
         <div class="mb-20">
           <h2 class="mb-4 text-2xl font-bold">Tools used</h2>
           <ul class="flex flex-wrap gap-4">
@@ -78,7 +83,7 @@ const relatedProjects = entry.data.relatedProjects
             }
           </ul>
         </div>
-        <div class="prose prose-lg prose-zinc mb-32">
+        <div class="prose prose-lg prose-zinc mx-auto mb-32 max-w-4xl">
           <Content />
         </div>
         {
@@ -118,9 +123,6 @@ const relatedProjects = entry.data.relatedProjects
     .prose a {
       @apply break-words text-orange-600;
     }
-    /* .prose a {
-      @apply relative z-20 break-words no-underline before:absolute before:bottom-0 before:left-0 before:-z-10 before:h-full before:w-full before:origin-bottom before:scale-y-[10%] before:bg-orange-300/70 before:transition-transform hover:before:scale-100;
-    } */
 
     .prose img {
       @apply m-0 rounded-md;
