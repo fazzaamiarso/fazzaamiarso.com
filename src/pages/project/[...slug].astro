@@ -69,41 +69,50 @@ const relatedProjects = entry.data.relatedProjects
           />
         </div>
       </div>
-      <div class="mx-auto mt-20 w-11/12 max-w-4xl space-y-12">
-        <div>
-          <h2 class="mb-4 text-h5">Links</h2>
-          <ul>
-            {
-              entry.data.githubUrl && (
-                <li class="flex items-center">
-                  <a
-                    href={entry.data.githubUrl}
-                    class:list={[
-                      buttonVariants({ variant: "link" }),
-                      "pl-0 !text-paragraph text-slate-600",
-                    ]}>
-                    Source Code <ArrowTopRightIcon className="size-5" />
-                  </a>
-                </li>
-              )
-            }
 
-            {
-              entry.data.siteUrl && (
-                <li class="flex items-center">
-                  <a
-                    href={entry.data.siteUrl}
-                    class:list={[
-                      buttonVariants({ variant: "link" }),
-                      "pl-0 !text-paragraph text-slate-600",
-                    ]}>
-                    Website <ArrowTopRightIcon className="size-5" />
-                  </a>
-                </li>
-              )
-            }
-          </ul>
-        </div>
+      <div class="mx-auto mt-20 w-11/12 max-w-4xl space-y-12">
+        {
+          entry.data.scope ? (
+            <div class="mx-auto">
+              <h2 class="mb-4 text-h5">Scope</h2>
+              <p>{entry.data.scope}</p>
+            </div>
+          ) : null
+        }
+        {
+          entry.data.githubUrl || entry.data.siteUrl ? (
+            <div>
+              <h2 class="mb-4 text-h5">Links</h2>
+              <ul>
+                {entry.data.githubUrl && (
+                  <li class="flex items-center">
+                    <a
+                      href={entry.data.githubUrl}
+                      class:list={[
+                        buttonVariants({ variant: "link" }),
+                        "pl-0 !text-paragraph text-slate-600",
+                      ]}>
+                      Source Code <ArrowTopRightIcon className="size-5" />
+                    </a>
+                  </li>
+                )}
+
+                {entry.data.siteUrl && (
+                  <li class="flex items-center">
+                    <a
+                      href={entry.data.siteUrl}
+                      class:list={[
+                        buttonVariants({ variant: "link" }),
+                        "pl-0 !text-paragraph text-slate-600",
+                      ]}>
+                      Website <ArrowTopRightIcon className="size-5" />
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          ) : null
+        }
         <div class="mb-20">
           <h2 class="mb-4 text-h5">Tools used</h2>
           <ul class="flex flex-wrap gap-4">

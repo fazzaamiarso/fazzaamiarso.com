@@ -48,3 +48,7 @@ Since this project uses Vanilla JavaScript, there are fewer available libraries 
 Feeling frustrated, I decided to implement some of the features myself. The most notable feature was lazy loading images. Although there is a popular library for it, it cannot penetrate shadow DOM. Therefore, I created my own lazy loading component that uses shadow DOM and supports native lazy loading capability.
 
 I also created my own client-side router. I was not satisfied with how the class's module implemented the router, and there are no suitable libraries available in Vanilla JavaScript. To my surprise, I had a lot of fun creating things on my own, although dealing with bugs was tough rather than improving the app.
+
+## Credentials
+
+Here's the link for the issued certificate: [Dicoding Certificate](https://www.dicoding.com/certificates/EYX49LY4RPDL)
