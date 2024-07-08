@@ -1,13 +1,13 @@
 ---
 name: "Munchika"
 description: "Leveraging the power of music and community to find and share musics that truly help and relatable to people. Made for Hashnode x Netlify hackathon held in February."
-cover: "https://i.imgur.com/jjJiZSg.jpg"
+cover: "https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/q_auto/v1720465840/fazzaamiarso.com-astro/projects/munchika/munchika-cover_dxont3.png"
 publishedDate: 2022-03-01
 githubUrl: "https://github.com/fazzaamiarso/munchika"
-siteUrl: "https://munchika.netlify.app/"
+# siteUrl: "https://munchika.netlify.app/"
 type: "hackathon"
 tools: ["remix", "supabase", "tailwind", "vitest", "cypress"]
-role: "Developed and designed the whole app end to end."
+role: "Frontend"
 relatedProjects:
   - foodhunt
   - product-feedback

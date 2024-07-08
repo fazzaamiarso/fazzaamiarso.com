@@ -1,12 +1,12 @@
 ---
 name: "Foodhunt"
 description: "A restaurant catalog application where users can find and search for their favorite restaurants. This project is a final project submission for Dicoding Frontend Expert Class."
-cover: "https://i.imgur.com/jjJiZSg.jpg"
+cover: "https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/q_auto/v1720464826/fazzaamiarso.com-astro/projects/foodhunt/foodhunt-cover.png"
 publishedDate: 2023-03-04
 githubUrl: "https://github.com/fazzaamiarso/dicoding-FE-Expert"
 siteUrl: "https://foodhunt-fz.netlify.app/#skip-content"
 featured: true
-role: "Built the whole app end to end. Ensuring submission's criteria are implemented."
+role: "Frontend"
 type: "submission"
 tools:
   [
@@ -23,7 +23,7 @@ tools:
 relatedProjects:
   - invoys
   - requestd
-thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/v1720382623/fazzaamiarso.com-astro/projects/foodhunt/fh-logo_ahhp7l.webp
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/q_auto/v1720382623/fazzaamiarso.com-astro/projects/foodhunt/fh-logo_ahhp7l.webp
 ---
 
 ## Challenges and Learning

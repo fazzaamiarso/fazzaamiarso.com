@@ -5,6 +5,8 @@ import { getCollection, getEntries } from "astro:content";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
 import RelatedCard from "@/components/project/related-card.astro";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { buttonVariants } from "@/components/ui/button";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
@@ -24,7 +26,6 @@ const relatedProjects = entry.data.relatedProjects
 ---
 
 <Layout layout={false} title={entry.data.name} description={entry.data.description}>
-  <!-- <main class="relative mx-auto w-11/12 max-w-5xl py-20"> -->
   <main class="relative mx-auto py-20">
     <div class="">
       <div class="relative mx-auto w-11/12 max-w-5xl pb-20 pt-6 text-center">
@@ -39,19 +40,19 @@ const relatedProjects = entry.data.relatedProjects
         </h1>
         <p class="text-h5 text-zinc-600">{entry.data.description}</p>
       </div>
-      <div class="border-t-neutral-200 sm:border-t">
+      <div class="border-t-neutral-200 md:border-t">
         <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-3">
-          <div class="border-t-neutral-200 p-4 max-sm:border-t sm:border-l">
+          <div class="border-t-neutral-200 p-4 max-md:border-t md:border-l">
             <div class="font-syne text-paragraph font-bold text-slate-600">Type</div>
             <div class="text-h6 text-slate-900">
               {entry.data.type[0].toUpperCase() + entry.data.type.slice(1)}
             </div>
           </div>
-          <div class="border-t-neutral-200 p-4 max-sm:border-t sm:border-l">
+          <div class="border-t-neutral-200 p-4 max-md:border-t md:border-l">
             <div class="font-syne text-paragraph font-bold text-slate-600">Role</div>
-            <div class="text-h6 text-slate-900">Frontend</div>
+            <div class="text-h6 text-slate-900">{entry.data.role}</div>
           </div>
-          <div class="border-t-neutral-200 p-4 max-sm:border-t sm:border-l">
+          <div class="border-t-neutral-200 p-4 max-md:border-t md:border-l">
             <div class="font-syne text-paragraph font-bold text-slate-600">Year</div>
             <div class="text-h6 text-slate-900">{year}</div>
           </div>
@@ -68,9 +69,43 @@ const relatedProjects = entry.data.relatedProjects
           />
         </div>
       </div>
-      <div class="mx-auto mt-20 w-11/12 max-w-4xl">
+      <div class="mx-auto mt-20 w-11/12 max-w-4xl space-y-12">
+        <div>
+          <h2 class="mb-4 text-h5">Links</h2>
+          <ul>
+            {
+              entry.data.githubUrl && (
+                <li class="flex items-center">
+                  <a
+                    href={entry.data.githubUrl}
+                    class:list={[
+                      buttonVariants({ variant: "link" }),
+                      "pl-0 !text-paragraph text-slate-600",
+                    ]}>
+                    Source Code <ArrowTopRightIcon className="size-5" />
+                  </a>
+                </li>
+              )
+            }
+
+            {
+              entry.data.siteUrl && (
+                <li class="flex items-center">
+                  <a
+                    href={entry.data.siteUrl}
+                    class:list={[
+                      buttonVariants({ variant: "link" }),
+                      "pl-0 !text-paragraph text-slate-600",
+                    ]}>
+                    Website <ArrowTopRightIcon className="size-5" />
+                  </a>
+                </li>
+              )
+            }
+          </ul>
+        </div>
         <div class="mb-20">
-          <h2 class="mb-4 text-2xl font-bold">Tools used</h2>
+          <h2 class="mb-4 text-h5">Tools used</h2>
           <ul class="flex flex-wrap gap-4">
             {
               entry.data.tools.map((tool) => {
@@ -83,13 +118,13 @@ const relatedProjects = entry.data.relatedProjects
             }
           </ul>
         </div>
-        <div class="prose prose-lg prose-zinc mx-auto mb-32 max-w-4xl">
+        <div class="prose prose-lg prose-zinc mx-auto max-w-4xl pb-32">
           <Content />
         </div>
         {
           relatedProjects.length ? (
             <section class="">
-              <h2 class="mb-8">More Projects</h2>
+              <h2 class="mb-8">See More Projects</h2>
               <ul class="grid gap-12 md:grid-cols-2">
                 {relatedProjects.map((project) => {
                   return (

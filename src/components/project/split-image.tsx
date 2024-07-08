@@ -8,7 +8,7 @@ export default function SplitImage({ children }: { children: ReactNode }) {
 }
 
 export function SplitContent({ children }: { children: ReactNode }) {
-  return <div className="flex flex-col gap-4">{children}</div>;
+  return <div className="flex flex-col gap-6">{children}</div>;
 }
 
 export function SplitItem({ src }: { src: string }) {

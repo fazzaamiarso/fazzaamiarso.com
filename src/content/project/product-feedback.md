@@ -13,7 +13,7 @@ tools: [
 "Trpc",
 ]
 type: "personal"
-role: "Develop the UI and functionality of the app based on the Figma design"
+role: "Fullstack"
 relatedProjects:
   - munchika
   - requestd

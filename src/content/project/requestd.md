@@ -17,7 +17,7 @@ tools: [
 "react-hook-form"
 ]
 type: "hackathon"
-role: "Developed and designed the whole app end to end."
+role: "Frontend"
 relatedProjects:
   - foodhunt
   - invoys
