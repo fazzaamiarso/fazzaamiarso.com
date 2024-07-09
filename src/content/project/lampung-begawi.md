@@ -8,7 +8,7 @@ featured: false
 role: "Frontend"
 type: "freelance"
 scope: "1 Project Manager, 3 Frontend, 2 Backend, 1 UI/UX"
-tools: ["React", "React Router", "Redux", "Redux Toolkit", "TailwindCSS", "Laravel"]
+tools: ["React", "React Router", "Redux", "Redux Toolkit", "D3.js", "TailwindCSS", "Laravel"]
 relatedProjects:
   - invoys
   - foodhunt
