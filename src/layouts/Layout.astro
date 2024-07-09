@@ -3,6 +3,7 @@ import Footer from "@/components/footer.astro";
 import WarningBanner from "@/components/warning-banner.astro";
 import Header from "@/components/header.astro";
 import BaseLayout from "./BaseLayout.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -21,3 +22,5 @@ const { title, description, layout = true } = Astro.props;
   </div>
   <Footer />
 </BaseLayout>
+
+<ViewTransitions />
