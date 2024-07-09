@@ -11,12 +11,14 @@ export function SplitContent({ children }: { children: ReactNode }) {
   return <div className="flex flex-col gap-6">{children}</div>;
 }
 
-export function SplitItem({ src }: { src: string }) {
+export function SplitItem({ src, children }: { src: string; children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="">
-      <img src={src} alt="" className="w-full" onClick={() => setIsOpen(true)} />
+      <div className="w-full" onClick={() => setIsOpen(true)}>
+        {children}
+      </div>
       {isOpen && (
         <Lightbox
           plugins={[Zoom]}

@@ -20,7 +20,14 @@ const type = project.type.charAt(0).toUpperCase() + project.type.slice(1);
   <div class="size-16 overflow-hidden rounded-full bg-slate-100">
     {
       project.thumbnail && (
-        <Image src={project.thumbnail} alt="" width={300} height={300} class="bg-cover" />
+        <Image
+          src={project.thumbnail}
+          alt=""
+          width={300}
+          height={300}
+          loading="eager"
+          class="bg-cover"
+        />
       )
     }
   </div>

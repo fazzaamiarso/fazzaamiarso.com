@@ -28,7 +28,8 @@ thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto/q_auto/v1720
 ---
 
 import { Image } from "astro:assets";
-import SplitImage, { SplitContent, SplitItem } from "@/components/project/split-image";
+import SplitImage, { SplitContent } from "@/components/project/split-image/split-image";
+import ImageItem from "@/components/project/split-image/split-image-wrapper.astro";
 import VideoPlayer from "@/components/project/video-player.astro";
 
 ## Inspiration
@@ -51,20 +52,14 @@ On the internet, a lot of open-source Invoice management apps are built with Lar
 
 <SplitImage>
   <SplitContent>
-    <SplitItem client:visible src="https://i.imgur.com/fdeh97j.png" />
-    <SplitItem client:visible src="https://i.imgur.com/1EulVHE.png" />
-    <SplitItem
-      client:visible
-      src="https://camo.githubusercontent.com/e3bf1451b0e3b335ef7280f5bc84f79ddb0d6fdc31d1670e1dddac9b183ace2e/68747470733a2f2f692e696d6775722e636f6d2f665675734b72372e706e67"
-    />
+    <ImageItem src="https://i.imgur.com/fdeh97j.png" />
+    <ImageItem src="https://i.imgur.com/1EulVHE.png" />
+    <ImageItem src="https://camo.githubusercontent.com/e3bf1451b0e3b335ef7280f5bc84f79ddb0d6fdc31d1670e1dddac9b183ace2e/68747470733a2f2f692e696d6775722e636f6d2f665675734b72372e706e67" />
   </SplitContent>
   <SplitContent>
-    <SplitItem client:visible src="https://i.imgur.com/T42iGGj.png" />
-    <SplitItem client:visible src="https://i.imgur.com/ujWxXj5.png" />
-    <SplitItem
-      client:visible
-      src="https://camo.githubusercontent.com/be08edf3288726c64b6fb9218f440c462e0b3469466330d9878990881f0632c0/68747470733a2f2f692e696d6775722e636f6d2f7270446f72304d2e676966"
-    />
+    <ImageItem src="https://i.imgur.com/T42iGGj.png" />
+    <ImageItem src="https://i.imgur.com/ujWxXj5.png" />
+    <ImageItem src="https://camo.githubusercontent.com/be08edf3288726c64b6fb9218f440c462e0b3469466330d9878990881f0632c0/68747470733a2f2f692e696d6775722e636f6d2f7270446f72304d2e676966" />
   </SplitContent>
 </SplitImage>
 
@@ -142,4 +137,4 @@ I learned a lot on building UI/UX by watching [Gary Simon's Design Course](https
 
 ## Takeaway
 
-An important takeaway is just try to build it first, if stuck then put it off for later. Before that, I was doing too much calculations before trying something (e.g. library), it turns out by trying I can learn and fail much faster.
+An important takeaway is just try to build it first, if stuck then put it off for later. Before that, I was doing too much calculations before trying something (e.g. library), it turns out by trying I can learn and fail much faster.@/components/project/split-image/split-image
