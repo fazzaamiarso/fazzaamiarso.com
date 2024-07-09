@@ -16,7 +16,7 @@
   h4,
   h5,
   h6 {
-    @apply font-syne font-semibold;
+    @apply font-syne font-semibold text-slate-900;
   }
 
   h1 {
@@ -32,7 +32,7 @@
   }
 
   p {
-    @apply text-slate-500 sm:text-paragraph;
+    @apply max-w-[70ch] text-slate-500 sm:text-paragraph;
   }
 }
 

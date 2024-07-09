@@ -1,0 +1,23 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404 | Page not found">
+  <main class="flex h-screen w-screen items-center justify-center">
+    <div class="mx-auto w-11/12 max-w-lg">
+      <video loop muted controls={false} autoplay class="rounded-lg">
+        <source
+          src="https://res.cloudinary.com/dkiqn0gqg/video/upload/f_auto/q_auto/v1720558017/fazzaamiarso.com-astro/side-eye-cat_chrbie.mp4"
+        />
+      </video>
+      <div class="space-y-4 text-center">
+        <h1 class="text-8xl">404</h1>
+        <p class="pb-8 text-3xl">You shouldn't be here. There's nothing to see!</p>
+        <a href="/" class:list={[buttonVariants({ variant: "default" }), "cursor-pointer"]}
+          >Go back home</a
+        >
+      </div>
+    </div>
+  </main>
+</BaseLayout>

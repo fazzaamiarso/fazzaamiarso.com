@@ -1,6 +1,5 @@
 ---
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import {
   EnvelopeClosedIcon,
   GitHubLogoIcon,
@@ -17,12 +16,12 @@ const socialLinks = [
 ];
 ---
 
-<footer class="mx-auto mt-12 max-w-5xl sm:w-11/12">
+<footer class="mx-auto mt-48 max-w-5xl sm:w-11/12">
   <div class="space-y-8">
-    <div class="rounded-md bg-slate-50 py-16">
+    <div class="rounded-md bg-slate-900 py-16">
       <div class="mx-auto w-11/12">
-        <h2 class="">Let's Connect! 🤝</h2>
-        <p class="mb-8 text-h6">
+        <h2 class="text-slate-50">Let's Connect! 🤝</h2>
+        <p class="mb-8 text-h6 text-slate-300">
           Don’t hesitate to reach me out to ask questions, discussions, or just to say hello.
         </p>
         <ul class="flex flex-wrap gap-2">
@@ -34,10 +33,10 @@ const socialLinks = [
                     href={link.href}
                     target="_blank"
                     referrerpolicy="no-referrer"
-                    class={cn(
+                    class:list={[
                       buttonVariants({ variant: "outline" }),
-                      "gap-2 rounded-md bg-transparent font-syne text-slate-800",
-                    )}>
+                      "gap-2 rounded-md border-slate-200 bg-transparent font-syne text-slate-200",
+                    ]}>
                     <link.icon className="w-5 h-5" /> {link.text}
                   </a>
                 </li>

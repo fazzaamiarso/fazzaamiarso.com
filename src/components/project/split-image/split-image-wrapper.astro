@@ -1,0 +1,15 @@
+---
+import { SplitItem as ImageWithLigthbox } from "./split-image";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt?: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<ImageWithLigthbox src={src} client:visible>
+  <Image src={src} alt={alt ?? ""} width={500} height={500} />
+</ImageWithLigthbox>
