@@ -6,6 +6,7 @@ import DotPattern from "@/components/magicui/dot-pattern";
 import RelatedCard from "@/components/project/related-card.astro";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("project");
@@ -96,10 +97,10 @@ const externalLinks = [
                     <li class="flex items-center">
                       <a
                         href={link.url}
-                        class:list={[
+                        class={cn(
                           buttonVariants({ variant: "link" }),
                           "pl-0 !text-paragraph text-orange-600",
-                        ]}>
+                        )}>
                         {link.label} <ArrowTopRightIcon className="size-5" />
                       </a>
                     </li>
@@ -125,7 +126,7 @@ const externalLinks = [
         </div>
         <!-- EXTRA SECTION END -->
         <!-- MAIN CONTENT START -->
-        <div class="prose prose-lg prose-zinc mx-auto max-w-4xl pb-32">
+        <div class="prose prose-lg prose-slate mx-auto max-w-4xl pb-32">
           <Content />
         </div>
         <!-- MAIN CONTENT END -->
