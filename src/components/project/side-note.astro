@@ -1,0 +1,22 @@
+---
+import { Info } from "lucide-react";
+
+interface Props {
+  headingText: string;
+}
+
+const { headingText } = Astro.props;
+---
+
+<aside
+  class:list={[
+    "not-prose relative w-full rounded-sm border-l-[3px] border-l-orange-600 bg-orange-50",
+    "p-4 lg:-ml-8 lg:pl-8",
+  ]}>
+  <div
+    class="absolute left-0 top-0 -translate-x-[calc(50%+1.5px)] -translate-y-1/2 rounded-full bg-white p-1 text-orange-600 max-lg:hidden">
+    <Info className="size-8 stroke-2" />
+  </div>
+  <strong class="text-slate-600">{headingText}</strong>
+  <p class="mt-2"><slot /></p>
+</aside>
