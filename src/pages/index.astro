@@ -3,7 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
 import Layout from "@/layouts/Layout.astro";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { getCollection } from "astro:content";
 import ProjectCard from "@/components/project-card.astro";
 import * as config from "@/site-config";
@@ -26,8 +26,14 @@ const ctaLinks = [
 ---
 
 <Layout>
-  <main class="mx-auto w-11/12 max-w-5xl space-y-20 pt-10">
-    <section class="relative space-y-8 py-20">
+  <main class="mx-auto w-11/12 max-w-5xl space-y-20">
+    <section class="relative mb-20 flex min-h-screen flex-col items-start justify-center space-y-8">
+      <a
+        href="#featured-heading"
+        class="absolute bottom-0 left-1/2 inline-block -translate-x-1/2 -translate-y-full animate-bounce p-4 hover:text-orange-600">
+        <span class="sr-only">Scroll to featured projects</span>
+        <ArrowDown className="size-12 transition-colors" />
+      </a>
       <AnimatedGridPattern
         client:load
         className={cn(
@@ -67,7 +73,6 @@ const ctaLinks = [
                     target="_blank"
                     href={link.url}>
                     <link.icon className="size-8 text-slate-700 md:size-12 hover:text-slate-600 transition-colors" />
-
                     <span class="sr-only">{`see fazza's ${link.label}`}</span>
                   </a>
                 </li>
@@ -79,7 +84,9 @@ const ctaLinks = [
     </section>
 
     <section class="flex flex-col">
-      <h2 class="mt-10 scroll-m-20 pb-2 font-semibold tracking-tight transition-colors first:mt-0">
+      <h2
+        id="featured-heading"
+        class="mt-10 scroll-m-20 pb-2 font-semibold tracking-tight transition-colors first:mt-0">
         Featured Projects
       </h2>
       <p class="mb-8 text-h6 leading-7 text-zinc-600">Projects that I've proud of building</p>
