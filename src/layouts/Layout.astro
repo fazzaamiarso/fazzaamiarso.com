@@ -1,9 +1,10 @@
 ---
 import Footer from "@/components/footer.astro";
-import WarningBanner from "@/components/warning-banner.astro";
 import Header from "@/components/header.astro";
 import BaseLayout from "./BaseLayout.astro";
 import { ViewTransitions } from "astro:transitions";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface Props {
   title?: string;
@@ -16,8 +17,15 @@ const { title, description, layout = true } = Astro.props;
 
 <BaseLayout title={title} description={description}>
   <!-- <WarningBanner /> -->
+  <a
+    href="#main-content"
+    class={cn(
+      buttonVariants({ variant: "default" }),
+      "fixed z-[9999] top-0 -translate-y-full focus-visible:translate-y-0 transition-transform",
+    )}>Skip to Main content</a
+  >
   <Header />
-  <div class:list={[{ "mx-auto max-w-5xl sm:w-11/12": layout }]}>
+  <div id="main-content" class:list={[{ "mx-auto max-w-5xl sm:w-11/12": layout }]}>
     <slot />
   </div>
   <Footer />
