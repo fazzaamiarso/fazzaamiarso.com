@@ -16,6 +16,34 @@ thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/q_auto,f_auto/v1720
 ---
 
 import SideNote from "@/components/project/side-note.astro";
+import Teams from "@/components/project/teams/teams.astro";
+
+### Teammates
+
+<Teams
+  teammates={[
+    {
+      name: "Anggi",
+      profileImg:
+        "https://media.licdn.com/dms/image/D5603AQF0ECJdpliNfw/profile-displayphoto-shrink_100_100/0/1720421372536?e=1726704000&v=beta&t=oIYeS857YlzK8znQJ7ddrh1f4Dkb-9GUccGr5qHiDAg",
+      url: "https://www.linkedin.com/in/trianggianggara/",
+      role: "Backend Developer",
+    },
+    {
+      name: "Dzaky",
+      profileImg:
+        "https://media.licdn.com/dms/image/D5603AQEiAb-OeJ6N8g/profile-displayphoto-shrink_400_400/0/1701607846687?e=1726704000&v=beta&t=0YHpaaqibt3zLqeSwvmE17H38zKJLvjrLKQWaX1dQWg",
+      url: "https://www.linkedin.com/in/dzakyabdurhmn/",
+      role: "Frontend Developer",
+    },
+    {
+      name: "Virza",
+      profileImg: undefined,
+      url: "https://www.linkedin.com/in/virza-aulia-rachman-933391282/",
+      role: "Project Manager",
+    },
+  ]}
+/>
 
 <SideNote headingText="Disclaimer">
   I can't provide the production url because the REST API endpoint is blocked by Vercel since it

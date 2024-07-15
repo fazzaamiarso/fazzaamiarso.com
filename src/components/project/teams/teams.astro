@@ -1,0 +1,39 @@
+---
+import TeamAvatar from "./avatar";
+
+interface Props {
+  teammates: {
+    name: string;
+    profileImg?: string;
+    url?: string;
+    role: string;
+  }[];
+}
+
+const { teammates } = Astro.props;
+---
+
+<ul class="not-prose mb-12 flex flex-wrap gap-8">
+  {
+    teammates.map((item) => {
+      return (
+        <li class="flex items-center gap-3">
+          <TeamAvatar
+            client:visible
+            name={item.name}
+            profile={item.profileImg}
+            fallback={item.name.split(" ")[0].slice(0, 1) + (item.name.split(" ")[1] ?? "")}
+          />
+          <div class="grid">
+            <a
+              target="_blank"
+              referrerpolicy="no-referrer"
+              href={item.url}
+              class="w-max">{`@${item.name}`}</a>
+            <span class="text-sm">{item.role}</span>
+          </div>
+        </li>
+      );
+    })
+  }
+</ul>
