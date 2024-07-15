@@ -1,0 +1,99 @@
+---
+name: "Justify"
+description: Connects individuals with lawyers willing to provide pro bono assistance, ensuring access to justice and offering practical experience for junior lawyers. With user-friendly features for communication and collaboration, our platform stands as a unique solution fostering legal support and professional growth.
+cover: "https://res.cloudinary.com/dkiqn0gqg/image/upload/f_auto,q_auto/v1721056235/fazzaamiarso.com-astro/projects/justify/landing-cover.png"
+publishedDate: 2024-07-14
+scope: "1 Project Manager, 2 Frontend, 1 Backend"
+githubUrl: "https://github.com/fazzaamiarso/justify-legal-assistance"
+featured: true
+role: "Frontend & UI/UX"
+type: "hackathon"
+tools: ["Next.js", "Typescript", "Shadcn", "react-hook-form", "TailwindCSS", "Docker", "Go", "GCP"]
+relatedProjects:
+  - lampung-begawi
+  - product-feedback
+thumbnail: https://res.cloudinary.com/dkiqn0gqg/image/upload/q_auto,f_auto/v1720908839/fazzaamiarso.com-astro/projects/justify/justify-logo_ixzsnt.png
+---
+
+import SideNote from "@/components/project/side-note.astro";
+
+<SideNote headingText="Disclaimer">
+  I can't provide the production url because the REST API endpoint is blocked by Vercel since it
+  still uses *http* protocol. Therefore, the app can't display any data. Please refer to the demo
+  video for the app functionality.
+</SideNote>
+
+## Inspiration
+
+According to Badan Pusat Statistik (BPS), there was 25.22 million poor people in Indonesia in March 2024. Many of these underprivileged individuals face legal battles without proper representation, leading to wrongful accusations and convictions. According to [linklsm.id](http://linklsm.id/), here are the 5 provinces with the largest distribution of legal aid organizations :
+
+- West Java: 25 Legal aid organizations
+- East Java: 21 Legal aid organizations
+- Central Java: 19 Legal aid organizations
+- Special Region of Yogyakarta: 5 Legal aid organizations
+- North Sumatra: 5 Legal aid organizations
+
+With only 5 legal aid organizations for a population of more than 1 million people, the uneven distribution of legal aid organizations in Indonesia is one of the causes of this issue. On the other hand, numerous lawyers are eager to provide pro bono services and gain practical experience. Our goal is to create a social app that bridges this gap, connecting those in need with lawyers willing to help, thereby promoting access to justice and community support.
+
+## What it does
+
+Our application connects individuals with lawyers willing to provide pro bono assistance, ensuring access to justice and offering practical experience for junior lawyers. With user-friendly features for communication and collaboration, our platform stands as a unique solution fostering legal support and professional growth.creating more conducive and collaborative environments. By empowering local initiatives for nationwide development and enabling society to work together for a better tomorrow With these feature
+
+- User-Lawyer Matching: Users can search for and message lawyers suitable for their case.
+- Public Case Posting: Lawyers can post cases publicly, inviting other lawyers to collaborate.
+- Case Upvoting: Users can upvote cases in the feed, ensuring that the most critical cases gain more attention.
+- Portfolio Building: Lawyers can build their professional portfolios by showcasing the cases they have resolved.
+
+## How we built it
+
+Our team consists of three developers responsible for building the application, and one designer responsible for the app's flow and design. First, we ideated the app until we were satisfied with all aspects we wanted to achieve. Then, we started by making a prototype with drawings.
+
+From there, we began frontend and backend development, The frontend development focused on building a user-friendly interface, ensuring ease of navigation and accessibility. Simultaneously, the backend development aimed to create a robust and secure system to handle user data, lawyer profiles, and case management.
+
+In the final stages, we integrated all components, conducted thorough testing, and made necessary adjustments to optimize performance and usability.
+
+## Challenges we ran into
+
+### Ideating
+
+During the hackathon, we encountered various changes. These changes included different topics and concepts. Since our team consisted of 4 people who just met at the venue, we spent most of our first day brainstorming.
+
+### Time Management
+
+Another significant issue was time management. With limited time to develop the app, balancing ideation, development, and testing phases proved challenging. We had to prioritize tasks efficiently to ensure the core functionalities were implemented within the given timeframe.
+
+### User Verification
+
+We were trying to figure out how to ensure that our users are real people and not spammers abusing the feature. We ended up with a solution where lawyer accounts are registered internally by request and then we send to them, while registration for general users or citizens needs to be verified before they can do certain feature like sending cases.
+
+### Deployment
+
+We faced significant challenges during the deployment stage. Specifically our code did not function correctly during deployment that almost make us gave up due to being stuck for 5 hours troubleshooting.eventually we found the problem and we need to bypass ssl certificate due to google cloud storage needed it to connect for the back end problem,
+
+## Limitation
+
+Given that our app's concept requires specific individuals to participate as users, we need to collaborate with at least one legal aid organization to launch our service. This partnership is essential for verifying and onboarding lawyers, as well as ensuring that the cases submitted through our platform receive proper attention and support.
+We also aim to implement machine learning to provide better case feeds tailored to each lawyer's expertise, preferences, and habits. This will maximize their potential and effectiveness in handling each case but we hardly have time to do so.
+
+## Accomplishments that we're proud of
+
+### Completed the apps
+
+Even though we faced many difficulties during the hackathon, we eventually finished the app and were happy with the result .
+
+### Effective Team Collaboration
+
+Despite being a newly formed team, we managed to work together efficiently, leveraging each member's strengths to overcome challenges and deliver a functional and impactful application. This experience has strengthened our teamwork skills and created a strong foundation for future collaborations.
+
+## What we learned
+
+We learned the importance of effective communication and collaboration, especially within a newly formed team. Adapting to changing ideas, managing time efficiently, and prioritizing tasks were crucial in balancing ideation, development, and testing within the hackathon's limited timeframe.
+
+## What's next for Justify - Law Assistance
+
+- Implement additional features, We plan to incorporate user feedback and enhance the user experience by adding real-time chat support.
+- Expand partnerships, We aim to collaborate with more legal aid organizations to broaden our network.
+- Increase outreach, By promoting our platform to a wider audience, we hope to ensure consistent access to legal representation for each individuals.
+- Support junior lawyers, Provide ample opportunities for junior lawyers to gain valuable experience through our platform.
+
+Ultimately, we strive to create a robust network that bridges the gap between those in need and lawyers willing to help, fostering access to justice and professional growth.
