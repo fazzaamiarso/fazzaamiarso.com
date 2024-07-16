@@ -10,15 +10,26 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://fazzaamiarso.com",
   markdown: {
-    rehypePlugins: [[rehypeWrap, {
-      wrapper: "div.image-wrapper",
-      selector: "img",
-      fallback: false
-    }]]
+    rehypePlugins: [
+      [
+        rehypeWrap,
+        {
+          wrapper: "div.image-wrapper",
+          selector: "img",
+          fallback: false,
+        },
+      ],
+    ],
   },
-  integrations: [react(), tailwind({
-    applyBaseStyles: false
-  }), mdx()],
+  integrations: [
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    mdx(),
+  ],
   output: "static",
-  adapter: vercel()
+  adapter: vercel({
+    webAnalytics: true,
+  }),
 });
