@@ -11,6 +11,20 @@ const languages = [
   { name: "Korean", flag: southKorea },
   { name: "Chinese", flag: china },
 ];
+
+const technologies = [
+  { name: "Typescript / Javascript" },
+  { name: "React" },
+  { name: "React Native / Expo" },
+  { name: "Next.js" },
+  { name: "Phyton" },
+  { name: "Tanstack Query" },
+  { name: "Node.js" },
+  { name: "Webpack" },
+  { name: "GCP" },
+  { name: "Xcode / Android Studio" },
+  { name: "Docker" },
+];
 ---
 
 <Layout>
@@ -25,17 +39,17 @@ const languages = [
       />
     </div>
     <div class="space-y-8">
-      <div>
+      <section>
         <h1 class="scroll-m-20 leading-tight">
-          <div>Hi there 👋,</div>
+          <section>Hi there 👋,</section>
           <div>I'm Fazza.</div>
         </h1>
         <div
           class="scroll-m-20 font-syne text-h5 leading-snug tracking-tight text-slate-500 sm:text-h4">
           A Fullstack-able Frontend developer from Indonesia
         </div>
-      </div>
-      <div>
+      </section>
+      <section>
         <p class="leading-7 [&:not(:first-child)]:mt-6">
           I love building stuff on the web because I can freely express my Idea. It’s like having
           your own tiny space that show you exist in this world. Sharing knowledge and opinion,
@@ -47,9 +61,25 @@ const languages = [
           teaching. I made most of my network and connections from participating as facilitator in
           scholarship programs.
         </p>
-      </div>
-      <div>
-        <h3 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h3>
+      </section>
+      <section class="max-w-xl">
+        <h2 class="mb-4 scroll-m-20 text-xl font-semibold tracking-tight">
+          Technologies I've worked with
+        </h2>
+        <ul class="flex flex-wrap gap-3">
+          {
+            technologies.map((tech) => {
+              return (
+                <li class="rounded-full px-3 py-1 text-sm text-slate-600 ring-1 ring-orange-300">
+                  {tech.name}
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+      <section>
+        <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h2>
         <p class="mb-6 leading-7 [&:not(:first-child)]:mt-6">
           Since I was a child, I’m fascinated by the power that languages hold to connect with
           people simply by speaking a person’s native language. I also believe that understanding
@@ -68,7 +98,7 @@ const languages = [
             })
           }
         </ul>
-      </div>
+      </section>
     </div>
   </main>
 </Layout>
