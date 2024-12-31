@@ -21,7 +21,7 @@ const project = defineCollection({
     featured: z.boolean().default(false),
     tools: z.array(z.string()),
     role: z.string(),
-    type: z.enum(["hackathon", "personal", "submission", "freelance"]),
+    type: z.enum(["hackathon", "personal", "submission", "freelance", "work"]),
     scope: z.string().optional(),
     thumbnail: z.string().url(),
     relatedProjects: z.array(reference("project")).optional(),
