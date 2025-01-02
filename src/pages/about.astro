@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import myImage from "@/assets/fra.jpeg";
 import { indonesia, china, japan, southKorea, usa } from "@/assets/countries";
+import { ArrowUpRight } from "lucide-react";
 
 const languages = [
   { name: "Indonesian", flag: indonesia },
@@ -38,6 +39,19 @@ const technologies = [
   { name: "Jest / Vitest" },
   { name: "Cypress" },
   { name: "Playwright" },
+];
+
+const inspirations = [
+  { name: "The Primeagen", link: "https://www.youtube.com/@ThePrimeagen" },
+  { name: "Pirate Software", link: "https://www.youtube.com/@PirateSoftware" },
+  { name: "t3.gg", link: "https://www.youtube.com/@t3dotgg" },
+  { name: "Dan Abramov", link: "https://overreacted.io/" },
+  { name: "Kent C. Dodds", link: "https://www.youtube.com/@KentCDodds-vids/videos" },
+  { name: "Brian Holt", link: "https://www.linkedin.com/in/btholt/" },
+  {
+    name: "Learn with Jason",
+    link: "https://www.youtube.com/@learnwithjason",
+  },
 ];
 ---
 
@@ -82,7 +96,7 @@ const technologies = [
       </section>
       <section class="max-w-xl">
         <h2 class="mb-4 scroll-m-20 text-xl font-semibold tracking-tight">
-          Some Technologies I've worked with
+          Some technologies I've worked with
         </h2>
         <ul class="flex flex-wrap gap-3">
           {
@@ -96,9 +110,9 @@ const technologies = [
           }
         </ul>
       </section>
-      <section>
+      <section class="pt-6">
         <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">Languages I speak</h2>
-        <p class="mb-6 leading-7 [&:not(:first-child)]:mt-6">
+        <p class="mb-6 leading-7 [&:not(:first-child)]:mt-3">
           Since I was a child, I’m fascinated by the power that languages hold to connect with
           people simply by speaking a person’s native language. I also believe that understanding
           the culture can open the door to people’s heart. It motivated me to learn and understand
@@ -111,6 +125,36 @@ const technologies = [
                 <li class="flex items-center rounded-full text-small text-slate-700 ring-1 ring-slate-200">
                   <Image src={lang.flag} alt={lang.name} loading="eager" class="size-8" />
                   <span class="px-2">{lang.name}</span>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+      <section class="pt-6">
+        <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">
+          Inspirations and favorite people
+        </h2>
+        <p class="mb-6 leading-7 [&:not(:first-child)]:mt-3">
+          Along the way on my journey on software engineering, I've found that having people to look
+          up to has given me a motivation to keep continue despite my hardships. These are the
+          people that had inspired me
+        </p>
+        <ul class="flex flex-col gap-4">
+          {
+            inspirations.map((item) => {
+              return (
+                <li class="w-max">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    class="text-slate-00 group flex items-center transition-colors hover:text-slate-600">
+                    {item.name}{" "}
+                    <ArrowUpRight
+                      width={18}
+                      className="text-orange-500 group-hover:rotate-45 transition-transform"
+                    />
+                  </a>
                 </li>
               );
             })
