@@ -6,11 +6,17 @@ import {
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
+import { Icon } from "astro-icon/components";
 import * as config from "@/site-config";
 
 const socialLinks = [
   { text: "Linkedin", href: config.linkedinUrl, icon: LinkedInLogoIcon },
   { text: "Github", href: config.githubUrl, icon: GitHubLogoIcon },
+  {
+    text: "Bluesky",
+    href: config.blueskyUrl,
+    icon: "fa6-brands:bluesky",
+  },
   { text: "X (Twitter)", href: config.twitterUrl, icon: TwitterLogoIcon },
   { text: config.email, href: `mailto:${config.email}`, icon: EnvelopeClosedIcon },
 ];
@@ -37,7 +43,12 @@ const socialLinks = [
                       buttonVariants({ variant: "outline" }),
                       "gap-2 rounded-md border-slate-200 bg-transparent font-syne text-slate-200",
                     ]}>
-                    <link.icon className="w-5 h-5" /> {link.text}
+                    {typeof link.icon === "string" ? (
+                      <Icon name={link.icon} class="h-5 w-5" />
+                    ) : (
+                      <link.icon className="w-5 h-5" />
+                    )}
+                    {link.text}
                   </a>
                 </li>
               );
