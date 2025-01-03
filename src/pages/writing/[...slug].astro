@@ -1,0 +1,84 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import DotPattern from "@/components/magicui/dot-pattern";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const { title, publishedDate, tags } = entry.data;
+---
+
+<Layout layout={false} title={title} description={"Blog description"}>
+  <main class="relative mx-auto py-20">
+    <!-- TOP SECTION START -->
+    <div>
+      <div class="relative mx-auto w-11/12 max-w-2xl pb-8 pt-24">
+        <div>
+          <span class="text-sm">
+            {new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(publishedDate)}</span
+          >
+          <h1 class="mb-2 scroll-m-20 text-4xl font-extrabold tracking-tight">
+            {title}
+          </h1>
+          <ul class="mt-3 flex items-center gap-2">
+            {
+              tags.map((tag) => {
+                return (
+                  <li class="rounded-full px-2.5 py-0.5 text-sm text-indigo-900 ring-1 ring-indigo-200">
+                    <span class="">{tag}</span>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- TOP SECTION END -->
+    <!-- MAIN CONTENT START -->
+    <div class="prose prose-lg prose-slate mx-auto w-11/12 max-w-2xl">
+      <Content />
+    </div>
+    <!-- MAIN CONTENT END -->
+  </main>
+</Layout>
+
+<style is:global>
+  .prose a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.3s;
+  }
+
+  .prose a:is(:hover, :focus) {
+    background-size: 100% 2px;
+  }
+
+  .prose a {
+    @apply break-words text-orange-600;
+  }
+
+  .prose img {
+    @apply m-0 rounded-md;
+  }
+
+  .prose li {
+    @apply !text-paragraph text-slate-500;
+  }
+
+  .prose .image-wrapper {
+    @apply my-8 rounded-md p-2 ring-1 ring-zinc-300;
+  }
+</style>
