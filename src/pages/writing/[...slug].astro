@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import DotPattern from "@/components/magicui/dot-pattern";
+import { ArrowLeftIcon } from "lucide-react";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -22,6 +22,11 @@ const { title, publishedDate, tags } = entry.data;
     <!-- TOP SECTION START -->
     <div>
       <div class="relative mx-auto w-11/12 max-w-2xl pb-8 pt-24">
+        <a
+          href="/writing"
+          class="absolute -left-16 -translate-x-full rounded-md p-2 ring-1 ring-indigo-200">
+          <ArrowLeftIcon className="h-5 w-5 text-indigo-700" />
+        </a>
         <div>
           <span class="text-sm">
             {new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(publishedDate)}</span
