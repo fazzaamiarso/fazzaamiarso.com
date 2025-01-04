@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, ArrowUpIcon } from "lucide-react";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -18,13 +18,16 @@ const { title, publishedDate, tags } = entry.data;
 ---
 
 <Layout layout={false} title={title} description={"Blog description"}>
-  <main class="relative mx-auto py-20">
+  <main class="relative mx-auto w-full py-20">
     <!-- TOP SECTION START -->
     <div>
-      <div class="relative mx-auto w-11/12 max-w-2xl pb-8 pt-24">
+      <div class="relative mx-auto w-11/12 max-w-2xl pb-8 pt-12 lg:pt-24">
         <a
           href="/writing"
-          class="absolute -left-16 -translate-x-full rounded-md p-2 ring-1 ring-indigo-200">
+          class:list={[
+            "absolute -left-16 -translate-x-full rounded-md border border-indigo-200 p-2 transition-colors max-lg:hidden",
+            "ring-2 ring-transparent ring-offset-2 hover:ring-indigo-700 focus:ring-indigo-700",
+          ]}>
           <ArrowLeftIcon className="h-5 w-5 text-indigo-700" />
         </a>
         <div>
@@ -50,12 +53,45 @@ const { title, publishedDate, tags } = entry.data;
     </div>
     <!-- TOP SECTION END -->
     <!-- MAIN CONTENT START -->
-    <div class="prose prose-lg prose-slate mx-auto w-11/12 max-w-2xl">
+    <div id="content" class="prose prose-lg prose-slate relative mx-auto w-11/12 max-w-2xl">
       <Content />
+      <button
+        id="back-to-top"
+        class="not-prose sticky bottom-12 left-full z-[99999] mt-8 h-max rounded-full bg-orange-100 p-3 opacity-0 transition-opacity hover:bg-orange-300 lg:translate-x-[200%]">
+        <ArrowUpIcon className="text-orange-600" />
+      </button>
+      <!-- MAIN CONTENT END -->
     </div>
-    <!-- MAIN CONTENT END -->
+    <div class="mx-auto w-11/12 max-w-2xl">
+      <a
+        href="/writing"
+        class:list={[
+          "inline-flex h-max items-center gap-1 rounded-md border border-indigo-200 p-2 text-indigo-800 transition-colors",
+          "ring-2 ring-transparent ring-offset-2 hover:ring-indigo-700 focus:ring-indigo-700",
+        ]}>
+        <ArrowLeftIcon className="h-5 w-5" />
+        <span class="text-sm">Back to writings</span>
+      </a>
+    </div>
   </main>
 </Layout>
+
+<script>
+  import throttle from "lodash.throttle";
+
+  const backtoTopButton = document.querySelector<HTMLElement>("#back-to-top");
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const toggleBackToTopVisibility = throttle(() => {
+    backtoTopButton!.style.opacity = window.scrollY > 500 ? "1" : "0";
+  }, 300);
+
+  backtoTopButton!.addEventListener("click", scrollToTop);
+  document.addEventListener("scroll", toggleBackToTopVisibility);
+</script>
 
 <style is:global>
   .prose a {
@@ -81,6 +117,10 @@ const { title, publishedDate, tags } = entry.data;
 
   .prose li {
     @apply !text-paragraph text-slate-500;
+  }
+
+  .prose :not(pre) > code {
+    @apply rounded-sm bg-orange-100/70 py-0.5 !text-paragraph font-semibold text-orange-950;
   }
 
   .prose .image-wrapper {
