@@ -4,6 +4,11 @@ publishedDate: 2023-01-08
 updatedDate: 2023-01-08
 tags: ["astro"]
 ---
+import SideNote from "@/components/project/side-note.astro";
+
+<SideNote headingText="Disclaimer" variants="danger">
+    This is an old blog post that uses the older version of Astro framework. There are a lot of breaking changes over the years, so things might not worked as expected today.
+</SideNote>
 
 Sometimes, there is a table of content to help us navigate through a blog more easily. When building a custom blog with remark and rehype, a standard solution is to use the `rehype-toc` plugin.
 
@@ -16,7 +21,7 @@ In Astro, we can build a table of content without extra plugins. Astro already p
 ## Create the Component
 Let's create a new Astro component called `TOC.astro` and define the needed props.
 
-```ts
+```astro title="TOC.astro"
 ---
 export type Props = {
     pageHeadings : Array<{depth:number,text: string; slug: string }>
@@ -26,8 +31,9 @@ const { pageHeadings } = Astro.props;
 ---
 <aside id="#toc">
     <ul>{pageHeadings.map(h => {
-        return <li> <a href={`#${h.slug}`}>{h.text}</a></li>
-    })}</ul>
+            return <li> <a href={`#${h.slug}`}>{h.text}</a></li>
+        })}
+    </ul>
 </aside>
 
 ```
@@ -35,7 +41,7 @@ const { pageHeadings } = Astro.props;
 The `pageHeadings` props will be special [`headings`](https://docs.astro.build/en/core-concepts/layouts/#markdown-layout-props) props passed from the astro layout component. Astro automatically assigns an id to all headings in markdown, which become slug in `headings` props.
 
 
-```ts
+```astro
 [{
     text : "Implement TOC",
     depth : 1,
@@ -50,7 +56,7 @@ The `pageHeadings` props will be special [`headings`](https://docs.astro.build/e
 
 Insert the TOC into the blog layout and pass it to the special `headings` props
 
-```ts
+```astro
 ---
 const {headings} = Astro.props;
 ---
@@ -70,7 +76,7 @@ const {headings} = Astro.props;
 
 Let's add a little style to the TOC, so it's fixed to the right.
 
-```ts
+```astro title="TOC.astro"
 <style>
     #toc {
         position: fixed;
@@ -98,7 +104,7 @@ We must let the TOC know which heading is intersecting by observing/spying on th
 ### Add an Observer Callback Function
 Firstly, insert a script tag in the TOC file. Afterward, create the observer callback function responsible for detecting and setting the active state.
 
-```ts
+```astro title="TOC.astro"
 <script>
 const setCurrentHeading : IntersectionObserverCallback = (entries) => {
     // loop to each entries (headings) in the page

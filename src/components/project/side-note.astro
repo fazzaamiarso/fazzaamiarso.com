@@ -1,5 +1,5 @@
 ---
-import { Info } from "lucide-react";
+import { Info, OctagonX } from "lucide-react";
 
 interface Props {
   headingText: string;
@@ -22,7 +22,8 @@ const { headingText, variants = "default" } = Astro.props;
       variants === "default" && "text-orange-600",
       variants === "danger" && "text-red-600",
     ]}>
-    <Info className="size-8 stroke-2" />
+    {variants === "danger" && <OctagonX className="size-6 stroke-2 " />}
+    {variants === "default" && <Info className="size-8 stroke-2" />}
   </div>
   <strong class="text-slate-600">{headingText}</strong>
   <p class="mt-2"><slot /></p>
