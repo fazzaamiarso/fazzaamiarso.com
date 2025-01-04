@@ -55,11 +55,13 @@ const { title, publishedDate, tags } = entry.data;
     <!-- MAIN CONTENT START -->
     <div id="content" class="prose prose-lg prose-slate relative mx-auto w-11/12 max-w-2xl">
       <Content />
-      <button
-        id="back-to-top"
-        class="not-prose sticky bottom-12 left-full z-[99999] mt-8 h-max rounded-full bg-orange-100 p-3 opacity-0 transition-opacity hover:bg-orange-300 lg:translate-x-[200%]">
-        <ArrowUpIcon className="text-orange-600" />
-      </button>
+      <back-to-top>
+        <button
+          id="back-to-top"
+          class="not-prose sticky bottom-12 left-full z-[99999] mt-8 h-max rounded-full bg-orange-100 p-3 opacity-0 transition-opacity hover:bg-orange-300 lg:translate-x-[200%]">
+          <ArrowUpIcon className="text-orange-600" />
+        </button>
+      </back-to-top>
       <!-- MAIN CONTENT END -->
     </div>
     <div class="mx-auto w-11/12 max-w-2xl">
@@ -79,20 +81,23 @@ const { title, publishedDate, tags } = entry.data;
 <script>
   import throttle from "lodash.throttle";
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  class BackToTop extends HTMLElement {
+    connectedCallback() {
+      const backToTopButton = this.querySelector<HTMLElement>("#back-to-top");
 
-  const toggleBackToTopVisibility = throttle(() => {
-    document.querySelector<HTMLElement>("#back-to-top")!.style.opacity =
-      window.scrollY > 500 ? "1" : "0";
-  }, 400);
+      const toggleBackToTopVisibility = throttle(() => {
+        backToTopButton!.style.opacity = window.scrollY > 500 ? "1" : "0";
+      }, 400);
 
-  window.document
-    .querySelector<HTMLElement>("#back-to-top")!
-    .addEventListener("click", scrollToTop);
+      backToTopButton!.addEventListener("click", this.scrollToTop);
+      window.addEventListener("scroll", toggleBackToTopVisibility);
+    }
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
 
-  window.addEventListener("scroll", toggleBackToTopVisibility);
+  customElements.define("back-to-top", BackToTop);
 </script>
 
 <style is:global>
@@ -129,3 +134,4 @@ const { title, publishedDate, tags } = entry.data;
     @apply my-8 rounded-md p-2 ring-1 ring-zinc-300;
   }
 </style>
+-->
