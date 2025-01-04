@@ -79,18 +79,20 @@ const { title, publishedDate, tags } = entry.data;
 <script>
   import throttle from "lodash.throttle";
 
-  const backtoTopButton = document.querySelector<HTMLElement>("#back-to-top");
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const toggleBackToTopVisibility = throttle(() => {
-    backtoTopButton!.style.opacity = window.scrollY > 500 ? "1" : "0";
-  }, 300);
+    document.querySelector<HTMLElement>("#back-to-top")!.style.opacity =
+      window.scrollY > 500 ? "1" : "0";
+  }, 400);
 
-  backtoTopButton!.addEventListener("click", scrollToTop);
-  document.addEventListener("scroll", toggleBackToTopVisibility);
+  window.document
+    .querySelector<HTMLElement>("#back-to-top")!
+    .addEventListener("click", scrollToTop);
+
+  window.addEventListener("scroll", toggleBackToTopVisibility);
 </script>
 
 <style is:global>

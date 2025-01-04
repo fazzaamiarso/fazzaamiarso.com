@@ -9,15 +9,22 @@ const blogs = (await getCollection("blog")).sort((a, b) => {
 ---
 
 <Layout title="Writings" description="All of my writings">
-  <main class="mx-auto space-y-10 pt-24">
+  <main class="mx-auto space-y-10 pt-32">
     <h2>Writings</h2>
     <div class="grid grid-cols-1 max-md:space-y-8 md:grid-cols-5">
       <section class="col-span-2 max-md:px-4 md:mr-12">
         <div class:list={["max-h-full rounded-md bg-indigo-50/70 p-4", "md:sticky md:top-24"]}>
-          <h3 class="flex items-center gap-1 text-xl text-indigo-900">
+          <h3 class="mb-2 flex items-center gap-1 text-lg text-indigo-900">
             <PinIcon className="h-5 w-5 -rotate-3" />Pinned Stuff
           </h3>
-          <p class="mt-2 text-sm">Hi! This is part will be added when there are more articles</p>
+          <a
+            href="https://dev.to/fazzaamiarso"
+            target="_blank"
+            referrerpolicy="no-referrer"
+            class="group inline-flex items-center gap-1 text-sm text-orange-600"
+            >📝
+            <span class="underline group-hover:no-underline">I wrote here previously</span>
+          </a>
         </div>
       </section>
       <section class="col-span-3">
