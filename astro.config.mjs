@@ -15,7 +15,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://fazzaamiarso.com",
+  site: "https://www.fazzaamiarso.com",
   markdown: {
     rehypePlugins: [
       [
@@ -28,12 +28,19 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [react(), tailwind({
-    applyBaseStyles: false,
-  }), expressiveCode({
-    plugins: [pluginLineNumbers()],
-    themes: ["github-dark-dimmed"],
-  }), mdx(), icon(), sitemap()],
+  integrations: [
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    expressiveCode({
+      plugins: [pluginLineNumbers()],
+      themes: ["github-dark-dimmed"],
+    }),
+    mdx(),
+    icon(),
+    sitemap(),
+  ],
   output: "static",
   adapter: vercel({
     webAnalytics: { enabled: true },
