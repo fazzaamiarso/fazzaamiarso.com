@@ -11,6 +11,8 @@ import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://fazzaamiarso.com",
@@ -26,18 +28,12 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    expressiveCode({
-      plugins: [pluginLineNumbers()],
-      themes: ["github-dark-dimmed"],
-    }),
-    mdx(),
-    icon(),
-  ],
+  integrations: [react(), tailwind({
+    applyBaseStyles: false,
+  }), expressiveCode({
+    plugins: [pluginLineNumbers()],
+    themes: ["github-dark-dimmed"],
+  }), mdx(), icon(), sitemap()],
   output: "static",
   adapter: vercel({
     webAnalytics: { enabled: true },
