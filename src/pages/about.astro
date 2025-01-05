@@ -41,7 +41,7 @@ const technologies = [
   { name: "Playwright" },
 ];
 
-const inspirations = [
+const favoritePeoples = [
   { name: "The Primeagen", link: "https://www.youtube.com/@ThePrimeagen" },
   { name: "Pirate Software", link: "https://www.youtube.com/@PirateSoftware" },
   { name: "t3.gg", link: "https://www.youtube.com/@t3dotgg" },
@@ -52,6 +52,12 @@ const inspirations = [
     name: "Learn with Jason",
     link: "https://www.youtube.com/@learnwithjason",
   },
+];
+
+const siteCredits = [
+  { name: "Significa", link: "https://significa.co/" },
+  { name: "Melvin Dinata", link: "https://www.melvindinata.com/" },
+  { name: "Josh W. Comeau", link: "https://www.joshwcomeau.com/" },
 ];
 ---
 
@@ -133,7 +139,7 @@ const inspirations = [
       </section>
       <section class="pt-6">
         <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">
-          Inspirations and favorite people
+          Favorite people on tech space
         </h2>
         <p class="mb-6 leading-7 [&:not(:first-child)]:mt-3">
           Along the way on my journey on software engineering, I've found that having people to look
@@ -142,7 +148,35 @@ const inspirations = [
         </p>
         <ul class="flex flex-col gap-4">
           {
-            inspirations.map((item) => {
+            favoritePeoples.map((item) => {
+              return (
+                <li class="w-max">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    class="text-slate-00 group flex items-center transition-colors hover:text-slate-600">
+                    {item.name}{" "}
+                    <ArrowUpRight
+                      width={18}
+                      className="text-orange-500 group-hover:rotate-45 transition-transform"
+                    />
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+      <section class="pt-6">
+        <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">Site credit</h2>
+        <p class="mb-6 leading-7 [&:not(:first-child)]:mt-3">
+          I'm by no means a great UI/UX designer. So, I definitely took inspirations here and there.
+          Here are some amazing sites and people that heavily influenced the design and UI of this
+          site.
+        </p>
+        <ul class="flex flex-col gap-4">
+          {
+            siteCredits.map((item) => {
               return (
                 <li class="w-max">
                   <a
