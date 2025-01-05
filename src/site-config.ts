@@ -14,6 +14,7 @@ export const email = "fazzaamiarso@gmail.com";
 export const linkedinUrl = "https://www.linkedin.com/in/fazzaamiarso/";
 export const githubUrl = "https://github.com/fazzaamiarso";
 export const twitterUrl = "https://twitter.com/faz_razq";
+export const blueskyUrl = "https://bsky.app/profile/fazzaamiarso.com";
 export const blogUrl = "https://dev.to/fazzaamiarso";
 export const resumeUrl =
   "https://drive.google.com/file/d/1qPe56ZpyYuZLJB7V4KjMKB1TsnFioI7w/view?usp=drive_link";

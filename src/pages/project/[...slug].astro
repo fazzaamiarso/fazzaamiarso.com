@@ -110,20 +110,22 @@ const externalLinks = [
             </div>
           ) : null
         }
-        <div class="mb-20">
-          <h2 class="mb-4 text-h5">Tools used</h2>
-          <ul class="flex flex-wrap gap-4">
-            {
-              entry.data.tools.map((tool) => {
-                return (
-                  <li class="max-w-max rounded-full bg-slate-50 p-4 text-sm text-slate-500">
-                    {tool}
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </div>
+        {
+          !!entry.data?.tools.length && (
+            <div class="mb-20">
+              <h2 class="mb-4 text-h5">Tools used</h2>
+              <ul class="flex flex-wrap gap-4">
+                {entry.data.tools.map((tool) => {
+                  return (
+                    <li class="max-w-max rounded-full bg-slate-50 px-4 py-2 text-sm text-slate-500">
+                      {tool}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )
+        }
         <!-- EXTRA SECTION END -->
         <!-- MAIN CONTENT START -->
         <div class="prose prose-lg prose-slate mx-auto max-w-4xl pb-32">

@@ -21,14 +21,26 @@ const project = defineCollection({
     featured: z.boolean().default(false),
     tools: z.array(z.string()),
     role: z.string(),
-    type: z.enum(["hackathon", "personal", "submission", "freelance"]),
+    type: z.enum(["hackathon", "personal", "submission", "freelance", "work"]),
     scope: z.string().optional(),
     thumbnail: z.string().url(),
     relatedProjects: z.array(reference("project")).optional(),
   }),
 });
 
+const blog = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    publishedDate: z.date(),
+    updatedDate: z.date(),
+    tags: z.array(z.string()),
+  }),
+});
+
 export const collections = {
   oss,
   project,
+  blog,
 };
