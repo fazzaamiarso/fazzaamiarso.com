@@ -1,9 +1,9 @@
 ---
-import { Info, OctagonX } from "lucide-react";
+import { HelpCircle, Info, OctagonX } from "lucide-react";
 
 interface Props {
   headingText: string;
-  variants?: "default" | "danger";
+  variants?: "default" | "danger" | "info";
 }
 
 const { headingText, variants = "default" } = Astro.props;
@@ -15,15 +15,18 @@ const { headingText, variants = "default" } = Astro.props;
     "p-4 lg:-ml-8 lg:pl-8",
     variants === "default" && "border-l-orange-600 bg-orange-50",
     variants === "danger" && "border-l-red-600 bg-red-50",
+    variants === "info" && "border-l-blue-600 bg-blue-50",
   ]}>
   <div
     class:list={[
       "absolute left-0 top-0 -translate-x-[calc(50%+1.5px)] -translate-y-1/2 rounded-full bg-white p-1 max-lg:hidden",
       variants === "default" && "text-orange-600",
       variants === "danger" && "text-red-600",
+      variants === "info" && "text-blue-600",
     ]}>
     {variants === "danger" && <OctagonX className="size-6 stroke-2 " />}
     {variants === "default" && <Info className="size-8 stroke-2" />}
+    {variants === "info" && <HelpCircle className="size-8 stroke-2" />}
   </div>
   <strong class="text-slate-600">{headingText}</strong>
   <p class="mt-2"><slot /></p>
