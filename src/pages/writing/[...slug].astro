@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { siteDescription } from "@/site-config";
 import { getCollection } from "astro:content";
 import { ArrowLeftIcon, ArrowUpIcon } from "lucide-react";
 
@@ -14,10 +15,10 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const { title, publishedDate, tags } = entry.data;
+const { title, publishedDate, tags, description = siteDescription } = entry.data;
 ---
 
-<Layout layout={false} title={title} description={"Blog description"}>
+<Layout layout={false} title={title} description={description}>
   <main class="relative mx-auto w-full py-20">
     <!-- TOP SECTION START -->
     <div>
@@ -119,7 +120,7 @@ const { title, publishedDate, tags } = entry.data;
   }
 
   .prose img {
-    @apply m-0 rounded-md;
+    @apply m-0 mx-auto rounded-md;
   }
 
   .prose li {

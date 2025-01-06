@@ -10,7 +10,10 @@ const blogs = (await getCollection("blog")).sort((a, b) => {
 
 <Layout title="Writings" description="All of my writings">
   <main class="mx-auto space-y-10 pt-32">
-    <h2>Writings</h2>
+    <div class="px-4">
+      <h2 class="text-h4">Writings</h2>
+      <p>My thoughts, reflections, and tutorial on software engineering (primarily frontend).</p>
+    </div>
     <div class="grid grid-cols-1 max-md:space-y-8 md:grid-cols-5">
       <section class="col-span-2 max-md:px-4 md:mr-12">
         <div class:list={["max-h-full rounded-md bg-indigo-50/70 p-4", "md:sticky md:top-24"]}>
@@ -23,7 +26,7 @@ const blogs = (await getCollection("blog")).sort((a, b) => {
             referrerpolicy="no-referrer"
             class="group inline-flex items-center gap-1 text-sm text-orange-600"
             >📝
-            <span class="underline group-hover:no-underline">I wrote here previously</span>
+            <span class="underline group-hover:no-underline">I've written here previously</span>
           </a>
         </div>
       </section>
@@ -32,8 +35,10 @@ const blogs = (await getCollection("blog")).sort((a, b) => {
           {
             blogs.map((blog) => {
               return (
-                <li class="cursor-pointer border-b px-8 py-8 transition-colors first:border-t hover:bg-indigo-100/20">
-                  <a href={`/writing/${blog.slug}`}>
+                <li class="relative cursor-pointer border-b px-8 py-8 transition-colors first:border-t hover:bg-indigo-100/20">
+                  <a
+                    href={`/writing/${blog.slug}`}
+                    class="before:absolute before:inset-0 before:z-10">
                     <span class="text-sm font-semibold text-indigo-800/60">
                       {new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(
                         blog.data.publishedDate,
