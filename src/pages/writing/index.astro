@@ -35,8 +35,10 @@ const blogs = (await getCollection("blog")).sort((a, b) => {
           {
             blogs.map((blog) => {
               return (
-                <li class="cursor-pointer border-b px-8 py-8 transition-colors first:border-t hover:bg-indigo-100/20">
-                  <a href={`/writing/${blog.slug}`}>
+                <li class="relative cursor-pointer border-b px-8 py-8 transition-colors first:border-t hover:bg-indigo-100/20">
+                  <a
+                    href={`/writing/${blog.slug}`}
+                    class="before:absolute before:inset-0 before:z-10">
                     <span class="text-sm font-semibold text-indigo-800/60">
                       {new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(
                         blog.data.publishedDate,
